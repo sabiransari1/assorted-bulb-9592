@@ -1,14 +1,21 @@
+export interface Home {
+  id: number;
+  img: string;
+  city: string;
+  country: string;
+  price: number;
+  rating: string;
+}
+
 export interface Places {
   id: number;
-  title: string;
+  img: string;
+  location: string;
+  type: string;
+  desc: string;
+  availability: string;
   price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  rating: string;
 }
 
 export interface Cart {

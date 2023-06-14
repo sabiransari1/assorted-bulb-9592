@@ -1,21 +1,24 @@
-import { Places } from "../../utils/types";
+import { Home, Places } from "../../utils/types";
 import { AppAction } from "./action";
 import {
   PLACES_REQUEST,
   PLACES_ERROR,
+  GET_HOME_SUCCESS,
   GET_PLACES_SUCCESS,
   UPDATE_PLACES_SUCCESS,
 } from "../actionTypes";
 
 export interface IAppState {
-  loading: boolean;
-  error: boolean;
+  isLoading: boolean;
+  isError: boolean;
+  home: Home[];
   data: Places[];
 }
 
 const initialState = {
-  loading: false,
-  error: false,
+  isLoading: false,
+  isError: false,
+  home: new Array(),
   data: new Array(),
 };
 
@@ -24,19 +27,23 @@ const placesReducer = (state: IAppState = initialState, action: AppAction): IApp
 
   switch (type) {
     case PLACES_REQUEST: {
-      return { ...state, loading: true, error: false };
+      return { ...state, isLoading: true, isError: false };
     }
 
     case PLACES_ERROR: {
-      return { ...state, loading: false, error: true };
+      return { ...state, isLoading: false, isError: true };
+    }
+
+    case GET_HOME_SUCCESS: {
+      return { ...state, isLoading: false, home: action.payload };
     }
 
     case GET_PLACES_SUCCESS: {
-      return { ...state, loading: false, data: action.payload };
+      return { ...state, isLoading: false, data: action.payload };
     }
 
     case UPDATE_PLACES_SUCCESS: {
-      return { ...state, loading: false };
+      return { ...state, isLoading: false };
     }
 
     default:
