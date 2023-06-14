@@ -1,7 +1,14 @@
 import axios, { AxiosResponse } from "axios";
-import { Places } from "../../utils/types";
+import { Home, Places } from "../../utils/types";
 
-let URL = "";
+let URL = " http://localhost:8080";
+
+export const getHome = async () => {
+  try {
+    const res: AxiosResponse<Home[]> = await axios.get(`${URL}/homePage`);
+    return res.data;
+  } catch (err) {}
+};
 
 export const getPlacesAPI = async (getPlacesParam?: { params: { category: string[] } }) => {
   try {
