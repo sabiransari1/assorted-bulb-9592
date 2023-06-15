@@ -5,6 +5,7 @@ import { Support } from "./Support";
 import { Housing } from "./Housing";
 import { Community } from "./Community";
 import { PageNotFound } from "./PageNotFound";
+import Login from "./Login";
 
 export const AllRoutes = () => {
   return (
@@ -14,6 +15,7 @@ export const AllRoutes = () => {
       <Route path={"/support"} element={<Support />} />
       <Route path={"/housing"} element={<Housing />} />
       <Route path={"/community"} element={<Community />} />
+      <Route path="/login" element={<Login />} />
       <Route path={"*"} element={<PageNotFound />} />
     </Routes>
   );
