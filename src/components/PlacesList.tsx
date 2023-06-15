@@ -1,8 +1,8 @@
 import { Box, Flex, Text, Grid, Center } from "@chakra-ui/react";
-import { PlacesCard } from "./PlacesCard";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/store";
-import { getHomePage } from "../redux/places/action";
+import { getPlaces } from "../redux/places/action";
+import { PlacesCard } from "./PlacesCard";
 
 interface PlacesListProp {
   str1: string;
@@ -10,11 +10,11 @@ interface PlacesListProp {
 }
 
 export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
-  const home = useAppSelector((store) => store.placesReducer.home);
+  const data = useAppSelector((store) => store.placesReducer.data);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getHomePage());
+    dispatch(getPlaces());
   }, []);
 
   return (
@@ -76,7 +76,7 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
         }}
         gap={"1rem"}
       >
-        {home?.map((el) => (
+        {data?.map((el) => (
           <PlacesCard key={el.id} {...el} />
         ))}
       </Grid>
