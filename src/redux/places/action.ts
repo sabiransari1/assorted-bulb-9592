@@ -72,11 +72,11 @@ export const getHomePage = (): any => async (dispatch: AppDispatch) => {
 };
 
 export const getPlaces =
-  (getPlacesParam?: { params: { category: string[] } }): any =>
+  (queryParams?: { params: { _page: number } }): any =>
   async (dispatch: AppDispatch) => {
     try {
       dispatch(placesRequest());
-      const res = await getPlacesAPI(getPlacesParam);
+      const res = await getPlacesAPI(queryParams);
       if (res) {
         dispatch(getPlacesSuccess(res));
       }

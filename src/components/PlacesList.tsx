@@ -1,8 +1,9 @@
 import { Box, Flex, Text, Grid, Center } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import { getPlaces } from "../redux/places/action";
 import { PlacesCard } from "./PlacesCard";
+import Pagination from "./Pagination";
 
 interface PlacesListProp {
   str1: string;
@@ -10,12 +11,25 @@ interface PlacesListProp {
 }
 
 export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
-  const data = useAppSelector((store) => store.placesReducer.data);
   const dispatch = useAppDispatch();
+  const data = useAppSelector((store) => store.placesReducer.data);
+  const [activePage, setActivePage] = useState<number>(1);
+  const [limit] = useState<number>(12);
+
+  const handlePageChange = (newPageNumber: number): void => {
+    setActivePage(newPageNumber);
+  };
 
   useEffect(() => {
-    dispatch(getPlaces());
-  }, []);
+    const queryParams = {
+      params: {
+        _page: activePage,
+        _limit: limit,
+      },
+    };
+
+    dispatch(getPlaces(queryParams));
+  }, [activePage]);
 
   return (
     <Box
@@ -80,6 +94,15 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
           <PlacesCard key={el.id} {...el} />
         ))}
       </Grid>
+
+      <Flex justifyContent="center" p={6}>
+        <Pagination
+          productsLength={data?.length}
+          perPage={2}
+          activePage={activePage}
+          handlePageChange={handlePageChange}
+        />
+      </Flex>
     </Box>
   );
 };

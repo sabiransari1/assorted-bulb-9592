@@ -87,24 +87,24 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
       <Flex justify={"space-between"}>
         {seeMore?.map((el, index) => (
           <Box w={"30%"} pos={"relative"} key={index}>
+            <Box
+              w={"40%"}
+              pos={"absolute"}
+              bg={"#567eb9"}
+              opacity={".6"}
+              borderRadius={"5px 0 0 5px"}
+              textAlign={"center"}
+              left={"60%"}
+              top={"20px"}
+              p={".2rem"}
+              color={"white"}
+            >
+              {el.quote}
+            </Box>
+
+            <Image src={el.img} alt={`See more`} borderRadius={"5px"} w={"100%"} />
+
             <Link to={"/places"}>
-              <Box
-                w={"40%"}
-                pos={"absolute"}
-                bg={"#567eb9"}
-                opacity={".6"}
-                borderRadius={"5px 0 0 5px"}
-                textAlign={"center"}
-                left={"60%"}
-                top={"20px"}
-                p={".2rem"}
-                color={"white"}
-              >
-                {el.quote}
-              </Box>
-
-              <Image src={el.img} alt={`See more`} borderRadius={"5px"} w={"100%"} />
-
               <Button
                 bgColor={"#f1095d"}
                 mt={".5rem"}
