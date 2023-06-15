@@ -12,18 +12,20 @@ import {
   useColorMode,
   useDisclosure,
   Text,
-  Switch,
 } from "@chakra-ui/react";
 import logoDark from "../assets/images/logoDark.png";
 import logoLight from "../assets/images/logoLight.png";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import { FaUser, FaUserSlash } from "react-icons/fa";
+import { useAppSelector } from "../redux/store";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [active, setActive] = useState<string>("");
+  const isAuth = useAppSelector((store) => store.authReducer.isAuth);
 
   return (
     <Flex
@@ -182,7 +184,12 @@ export const Navbar = () => {
 
         {/* forth.2 */}
         <Box>
-          <Switch size={"lg"} />
+          <IconButton
+            aria-label={"auth"}
+            icon={isAuth ? <FaUserSlash /> : <FaUser />}
+            size={"sm"}
+            isRound
+          />
         </Box>
 
         {/* forth.3 */}
