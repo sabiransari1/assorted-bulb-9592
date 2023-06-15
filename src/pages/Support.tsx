@@ -1,3 +1,20 @@
+import { Center, Image, useColorMode } from "@chakra-ui/react";
+import underConstruction from "../assets/images/underConstruction.jpg";
+
 export const Support = () => {
-  return <div>Support</div>;
+  const { colorMode } = useColorMode();
+
+  return (
+    <Center
+      bg={colorMode === "light" ? "white" : "black"}
+      minW={"100%"}
+      minH={"100%"}
+      zIndex={"1"}
+      pos={"fixed"}
+      top={"0"}
+      borderRadius={"5px"}
+    >
+      <Image src={underConstruction} borderRadius={"5px"} />
+    </Center>
+  );
 };
