@@ -1,18 +1,18 @@
 import axios, { AxiosResponse } from "axios";
 import { Home, Places } from "../../utils/types";
 
-let URL = " http://localhost:8080";
+let URL = "http://localhost:8080";
 
-export const getHome = async () => {
+export const getHomeAPI = async () => {
   try {
     const res: AxiosResponse<Home[]> = await axios.get(`${URL}/homePage`);
     return res.data;
   } catch (err) {}
 };
 
-export const getPlacesAPI = async (getPlacesParam?: { params: { category: string[] } }) => {
+export const getPlacesAPI = async (queryParams?: { params: { _page: number } }) => {
   try {
-    const res: AxiosResponse<Places[]> = await axios.get(`${URL}/places`, getPlacesParam);
+    const res: AxiosResponse<Places[]> = await axios.get(`${URL}/places`, queryParams);
     return res.data;
   } catch (err) {}
 };

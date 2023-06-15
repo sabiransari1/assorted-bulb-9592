@@ -1,13 +1,29 @@
-import { Text, Grid, Image, useColorMode, Icon, Box, Flex } from "@chakra-ui/react";
-import { Home } from "../utils/types";
-import { BsFillSuitHeartFill } from "react-icons/bs";
+import { Text, Grid, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
+import { Places } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
+import { BsFillSuitHeartFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-export const PlacesCard = ({ id, img, city, country, price, rating }: Home) => {
+export const PlacesCard = ({
+  id,
+  img,
+  city,
+  country,
+  type,
+  desc,
+  availability,
+  price,
+  review,
+  rating,
+  host,
+  hostImg,
+  yOh,
+  hostTag,
+}: Places) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Grid borderRadius="5px" w={"100%"}>
+    <Grid borderRadius="5px" w={"100%"} pos={"relative"}>
       {/* first */}
       <Image
         src={img}
@@ -23,11 +39,13 @@ export const PlacesCard = ({ id, img, city, country, price, rating }: Home) => {
           transform: "scale(0.9)",
         }}
       />
-      {/* <Box w="100%" py={"100"} bgImage={img} bgRepeat="no-repeat" objectFit={"fill"}>
-        <Icon aria-label="rating" as={BsFillSuitHeartFill} color={"#f1095d"} />
-      </Box> */}
 
       {/* second */}
+      <Box pos={"absolute"} left={"87%"} top={"5%"}>
+        <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
+      </Box>
+
+      {/* third */}
       <Flex justify={"space-between"} mt={".3rem"}>
         <Text fontWeight={"semibold"} color={colorMode === "light" ? "black" : "white"}>
           {city}, {country}
@@ -38,7 +56,7 @@ export const PlacesCard = ({ id, img, city, country, price, rating }: Home) => {
         </Box>
       </Flex>
 
-      {/* third */}
+      {/* forth */}
       <Text
         color={"#788097"}
         fontSize={{
@@ -50,11 +68,18 @@ export const PlacesCard = ({ id, img, city, country, price, rating }: Home) => {
           "2xl": "2xl",
         }}
       >
-        {}
+        {desc}
       </Text>
 
-      {/* forth */}
+      {/* fifth */}
       <Text>₹ {price}</Text>
+
+      {/* sixth */}
+      <Link to={""}>
+        <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"}>
+          Book Now
+        </Button>
+      </Link>
     </Grid>
   );
 };

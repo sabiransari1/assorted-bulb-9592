@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Flex,
@@ -11,17 +12,20 @@ import {
   useColorMode,
   useDisclosure,
   Text,
-  Switch,
 } from "@chakra-ui/react";
 import logoDark from "../assets/images/logoDark.png";
 import logoLight from "../assets/images/logoLight.png";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import { FaUser, FaUserSlash } from "react-icons/fa";
+import { useAppSelector } from "../redux/store";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [active, setActive] = useState<string>("");
+  const isAuth = useAppSelector((store) => store.authReducer.isAuth);
 
   return (
     <Flex
@@ -34,10 +38,18 @@ export const Navbar = () => {
       boxShadow={
         "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
       }
-      p={"0 3rem"}
       zIndex={"1"}
-      bg={colorMode === "light" ? "#bcc8dd" : "black"}
-      color={colorMode === "light" ? "#484848" : "white"}
+      // bg={colorMode === "light" ? "#bcc8dd" : "black"}
+      bg={"black"}
+      color={"white"}
+      p={{
+        base: "0rem 1rem",
+        sm: "0rem 1rem",
+        md: "0rem 2rem",
+        lg: "0rem 5rem",
+        xl: "0rem 5rem",
+        "2xl": "0rem 5rem",
+      }}
     >
       {/* first */}
       <Box display={"none"}>
@@ -66,6 +78,10 @@ export const Navbar = () => {
                 <Text>Home</Text>
               </Link>
 
+              <Link to={"/places"} onClick={onClose}>
+                <Text>Places</Text>
+              </Link>
+
               <Link to={"/about"} onClick={onClose}>
                 <Text>About</Text>
               </Link>
@@ -87,30 +103,69 @@ export const Navbar = () => {
       </Box>
 
       {/* second */}
-      <Box w={"10%"}>
-        <Image src={colorMode === "light" ? logoLight : logoDark} alt={"Logo"} w={"100%"} />
+      <Box w={"5%"}>
+        <Link to={"/"} onClick={() => setActive("")}>
+          <Image
+            // src={colorMode === "light" ? logoLight : logoDark}
+            src={logoDark}
+            alt={"Logo"}
+            w={"100%"}
+          />
+        </Link>
       </Box>
 
       {/* third */}
-      <Flex w={"50%"} justify={"space-between"}>
-        <Link to={"/"}>
-          <Text>Home</Text>
+      <Flex w={"50%"} justify={"space-between"} fontSize={"2xl"} gap={".5rem"}>
+        <Link to={"/places"}>
+          <Text
+            _hover={{
+              color: "#f1095d",
+            }}
+            color={active === "Places" ? "#f1095d" : ""}
+            onClick={() => setActive("Places")}
+          >
+            Places
+          </Text>
         </Link>
 
         <Link to={"/about"}>
-          <Text>About</Text>
+          <Text
+            _hover={{
+              color: "#f1095d",
+            }}
+          >
+            About
+          </Text>
         </Link>
 
         <Link to={"/support"}>
-          <Text>Support</Text>
+          <Text
+            _hover={{
+              color: "#f1095d",
+            }}
+          >
+            Support
+          </Text>
         </Link>
 
         <Link to={"/housing"}>
-          <Text>Housing</Text>
+          <Text
+            _hover={{
+              color: "#f1095d",
+            }}
+          >
+            Housing
+          </Text>
         </Link>
 
         <Link to={"/community"}>
-          <Text>Community</Text>
+          <Text
+            _hover={{
+              color: "#f1095d",
+            }}
+          >
+            Community
+          </Text>
         </Link>
       </Flex>
 
@@ -129,7 +184,12 @@ export const Navbar = () => {
 
         {/* forth.2 */}
         <Box>
-          <Switch size={"lg"} />
+          <IconButton
+            aria-label={"auth"}
+            icon={isAuth ? <FaUserSlash /> : <FaUser />}
+            size={"sm"}
+            isRound
+          />
         </Box>
 
         {/* forth.3 */}

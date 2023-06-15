@@ -25,6 +25,7 @@ export const ImageSlider = () => {
     slidesToScroll: 1,
     pauseOnHover: true,
     cssEase: "linear",
+    arrows: false,
   };
 
   return (

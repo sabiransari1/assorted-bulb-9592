@@ -1,6 +1,6 @@
 import { Home, Places } from "../../utils/types";
 import { AppDispatch } from "../store";
-import { getHome, getPlacesAPI, updatePlacesAPI } from "./api";
+import { getHomeAPI, getPlacesAPI, updatePlacesAPI } from "./api";
 import {
   PLACES_REQUEST,
   PLACES_ERROR,
@@ -62,7 +62,7 @@ const updatePlacesSuccess = (): IUpdatePlaceSuccess => {
 export const getHomePage = (): any => async (dispatch: AppDispatch) => {
   try {
     dispatch(placesRequest());
-    const res = await getHome();
+    const res = await getHomeAPI();
     if (res) {
       dispatch(getHomeSuccess(res));
     }
@@ -72,11 +72,11 @@ export const getHomePage = (): any => async (dispatch: AppDispatch) => {
 };
 
 export const getPlaces =
-  (getplacessParam?: { params: { category: string[] } }): any =>
+  (queryParams?: { params: { _page: number; _limit: number; q: string } }): any =>
   async (dispatch: AppDispatch) => {
     try {
       dispatch(placesRequest());
-      const res = await getPlacesAPI(getplacessParam);
+      const res = await getPlacesAPI(queryParams);
       if (res) {
         dispatch(getPlacesSuccess(res));
       }
