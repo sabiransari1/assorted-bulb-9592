@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import { Home, Places } from "../../utils/types";
 
-let URL = " http://localhost:8080";
+let URL = "http://localhost:8080";
 
-export const getHome = async () => {
+export const getHomeAPI = async () => {
   try {
     const res: AxiosResponse<Home[]> = await axios.get(`${URL}/homePage`);
     return res.data;

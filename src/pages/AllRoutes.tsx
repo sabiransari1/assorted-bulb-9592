@@ -4,6 +4,7 @@ import { About } from "./About";
 import { Support } from "./Support";
 import { Housing } from "./Housing";
 import { Community } from "./Community";
+import { Places } from "./Places";
 import { PageNotFound } from "./PageNotFound";
 
 export const AllRoutes = () => {
@@ -14,6 +15,7 @@ export const AllRoutes = () => {
       <Route path={"/support"} element={<Support />} />
       <Route path={"/housing"} element={<Housing />} />
       <Route path={"/community"} element={<Community />} />
+      <Route path={"/places"} element={<Places />} />
       <Route path={"*"} element={<PageNotFound />} />
     </Routes>
   );
