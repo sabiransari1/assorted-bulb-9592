@@ -98,7 +98,7 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
           borderRadius={"0px 0px 5px 5px"}
         >
           <Text>
-            SAFAR wouldn't be what it is without a dedicated community of passionate users.
+            SAFAR wouldn't be what it is without a dedicated community of passionate travelers.
           </Text>
 
           <Text mt={"1rem"}> SAFAR is a better place because of your ideas, help & hard work.</Text>

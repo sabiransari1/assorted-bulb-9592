@@ -1,23 +1,18 @@
 import { Button, Flex } from "@chakra-ui/react";
 
 interface IPaginationProps {
-  productsLength: number;
+  placesLength: number;
   perPage: number;
   activePage: number;
   handlePageChange: (page: number) => void;
 }
 
-const Pagination = ({
-  productsLength,
-  perPage,
-  activePage,
-  handlePageChange,
-}: IPaginationProps) => {
-  const totalPages = Math.ceil(productsLength / perPage);
+const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPaginationProps) => {
+  const totalPages = Math.ceil(placesLength / perPage);
   return (
     <Flex gap={3}>
       {/* {Prev Button} */}
-      {
+      {placesLength ? (
         <Button
           color={"black"}
           bg={"#daeff0"}
@@ -26,7 +21,9 @@ const Pagination = ({
         >
           Prev
         </Button>
-      }
+      ) : (
+        "No result found, Please try again..."
+      )}
 
       {/* {....} */}
       {activePage > 2 && "..."}
@@ -54,7 +51,7 @@ const Pagination = ({
       {/* {....} */}
       {activePage < totalPages - 2 && "..."}
 
-      {
+      {placesLength ? (
         <Button
           color={"black"}
           bg={"#daeff0"}
@@ -63,7 +60,9 @@ const Pagination = ({
         >
           Next
         </Button>
-      }
+      ) : (
+        ""
+      )}
     </Flex>
   );
 };

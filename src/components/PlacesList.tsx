@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "../redux/store";
 import { getPlaces } from "../redux/places/action";
 import { PlacesCard } from "./PlacesCard";
 import Pagination from "./Pagination";
+import { PlacesFunctionality } from "./PlacesFunctionality";
 
 interface PlacesListProp {
   str1: string;
@@ -15,21 +16,31 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
   const data = useAppSelector((store) => store.placesReducer.data);
   const [activePage, setActivePage] = useState<number>(1);
   const [limit] = useState<number>(12);
+  const [query, setQuery] = useState<string>("");
 
   const handlePageChange = (newPageNumber: number): void => {
     setActivePage(newPageNumber);
   };
 
-  useEffect(() => {
-    const queryParams = {
-      params: {
-        _page: activePage,
-        _limit: limit,
-      },
-    };
+  const queryParams = {
+    params: {
+      _page: activePage,
+      _limit: limit,
+      q: query && query,
+    },
+  };
 
+  // let id: number = 0;
+
+  useEffect(() => {
+    // if (id) {
+    //   clearTimeout(id);
+    // }
+    // id = setTimeout(() => {
+    //   dispatch(getPlaces(queryParams));
+    // }, 2000);
     dispatch(getPlaces(queryParams));
-  }, [activePage]);
+  }, [activePage, query]);
 
   return (
     <Box
@@ -78,6 +89,8 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
         </Flex>
       </Center>
 
+      <PlacesFunctionality query={query} setQuery={setQuery} />
+
       {/* second */}
       <Grid
         templateColumns={{
@@ -97,7 +110,7 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
 
       <Flex justifyContent="center" p={6}>
         <Pagination
-          productsLength={data?.length}
+          placesLength={data?.length}
           perPage={2}
           activePage={activePage}
           handlePageChange={handlePageChange}
