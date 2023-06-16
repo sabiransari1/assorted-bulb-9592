@@ -1,5 +1,5 @@
 import { Center, Image, useColorMode } from "@chakra-ui/react";
-import underConstruction from "../assets/images/underConstruction.jpg";
+import underConstruction from "../assets/images/underConstruction.png";
 
 export const Community = () => {
   const { colorMode } = useColorMode();

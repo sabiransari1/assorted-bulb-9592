@@ -72,11 +72,22 @@ export const PlacesCard = ({
       </Text>
 
       {/* fifth */}
-      <Text>₹ {price}</Text>
+      <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>
+        {availability === "available" ? "Available" : "Not Available"}
+      </Text>
 
       {/* sixth */}
-      <Link to={""}>
-        <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"}>
+      <Text>₹ {price}</Text>
+
+      {/* seventh */}
+      <Link to={`/booking/${id}`}>
+        <Button
+          w={"100%"}
+          bgColor={"#f1095d"}
+          mt={".3rem"}
+          color={"white"}
+          isDisabled={availability === "unavailable"}
+        >
           Book Now
         </Button>
       </Link>
