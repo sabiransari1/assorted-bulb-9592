@@ -6,7 +6,11 @@ import { Housing } from "./Housing";
 import { Community } from "./Community";
 import { Places } from "./Places";
 import { PageNotFound } from "./PageNotFound";
+
+import { Booking } from "../components/Booking";
+
 import Login from "./Login";
+
 
 export const AllRoutes = () => {
   return (
@@ -20,6 +24,8 @@ export const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
 
       <Route path={"/places"} element={<Places />} />
+
+      <Route path={"/booking/:id"} element={<Booking />} />
 
       <Route path={"*"} element={<PageNotFound />} />
     </Routes>

@@ -1,10 +1,9 @@
-import { Text, Grid, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
+import { Text, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
 import { Places } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillSuitHeartFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
-export const PlacesCard = ({
+export const SinglePlace = ({
   id,
   img,
   city,
@@ -23,22 +22,9 @@ export const PlacesCard = ({
   const { colorMode } = useColorMode();
 
   return (
-    <Grid borderRadius="5px" w={"100%"} pos={"relative"}>
+    <Box borderRadius="5px" w={"50%"} margin={"auto"} pos={"relative"} mt={"5%"}>
       {/* first */}
-      <Image
-        src={img}
-        alt={city}
-        w={"100%"}
-        minH={"200px"}
-        maxH={"200px"}
-        borderRadius="5px"
-        cursor={"pointer"}
-        transition="transform .5s"
-        _hover={{
-          cursor: "pointer",
-          transform: "scale(0.9)",
-        }}
-      />
+      <Image src={img} alt={city} w={"100%"} maxH={"500px"} borderRadius="5px" />
 
       {/* second */}
       <Box pos={"absolute"} left={"87%"} top={"5%"}>
@@ -72,25 +58,20 @@ export const PlacesCard = ({
       </Text>
 
       {/* fifth */}
+      <Text>{type && type.toUpperCase()}</Text>
+
+      {/* sixth */}
       <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>
         {availability === "available" ? "Available" : "Not Available"}
       </Text>
 
-      {/* sixth */}
+      {/* seventh */}
       <Text>₹ {price}</Text>
 
-      {/* seventh */}
-      <Link to={`/booking/${id}`}>
-        <Button
-          w={"100%"}
-          bgColor={"#f1095d"}
-          mt={".3rem"}
-          color={"white"}
-          isDisabled={availability === "unavailable"}
-        >
-          Book Now
-        </Button>
-      </Link>
-    </Grid>
+      {/* eight */}
+      <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"}>
+        Book Now
+      </Button>
+    </Box>
   );
 };

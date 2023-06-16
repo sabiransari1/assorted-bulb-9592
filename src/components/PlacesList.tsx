@@ -5,6 +5,7 @@ import { getPlaces } from "../redux/places/action";
 import { PlacesCard } from "./PlacesCard";
 import Pagination from "./Pagination";
 import { PlacesFunctionality } from "./PlacesFunctionality";
+import { useSearchParams } from "react-router-dom";
 
 interface PlacesListProp {
   str1: string;
@@ -17,6 +18,7 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
   const [activePage, setActivePage] = useState<number>(1);
   const [limit] = useState<number>(12);
   const [query, setQuery] = useState<string>("");
+  const [searchParams] = useSearchParams();
 
   const handlePageChange = (newPageNumber: number): void => {
     setActivePage(newPageNumber);
@@ -27,6 +29,9 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
       _page: activePage,
       _limit: limit,
       q: query && query,
+      type: searchParams.get("residency"),
+      _sort: searchParams.get("order") && "price",
+      _order: searchParams.get("order"),
     },
   };
 
@@ -40,7 +45,7 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
     //   dispatch(getPlaces(queryParams));
     // }, 2000);
     dispatch(getPlaces(queryParams));
-  }, [activePage, query]);
+  }, [activePage, query, searchParams]);
 
   return (
     <Box

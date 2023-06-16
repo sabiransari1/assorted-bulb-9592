@@ -1,4 +1,4 @@
-import { Box, Flex, Image, ListItem, Text, UnorderedList, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import googlePlay from "../assets/images/googlePlay.png";
 import appleApp from "../assets/images/appleApp.png";
 import linkedin from "../assets/images/linkedin.png";
@@ -7,8 +7,6 @@ import facebook from "../assets/images/facebook.png";
 import instagram from "../assets/images/instagram.png";
 
 export const Footer = () => {
-  const { colorMode } = useColorMode();
-
   return (
     <Flex
       p={{
@@ -20,11 +18,6 @@ export const Footer = () => {
         "2xl": "3rem 5rem",
       }}
       justify={"space-between"}
-      bgColor={colorMode === "light" ? "#bcc8dd" : "#000"}
-      borderTop={colorMode === "light" ? "" : "2px double white"}
-      // boxShadow={
-      //   "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
-      // }
     >
       {/* first */}
       <Box>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Flex,
@@ -24,7 +23,6 @@ import { useAppSelector } from "../redux/store";
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [active, setActive] = useState<string>("");
   const isAuth = useAppSelector((store) => store.authReducer.isAuth);
 
   return (
@@ -39,9 +37,7 @@ export const Navbar = () => {
         "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
       }
       zIndex={"1"}
-      // bg={colorMode === "light" ? "#bcc8dd" : "black"}
-      bg={"black"}
-      color={"white"}
+      bg={colorMode === "light" ? "#fff" : "#000"}
       p={{
         base: "0rem 1rem",
         sm: "0rem 1rem",
@@ -104,13 +100,8 @@ export const Navbar = () => {
 
       {/* second */}
       <Box w={"5%"}>
-        <Link to={"/"} onClick={() => setActive("")}>
-          <Image
-            // src={colorMode === "light" ? logoLight : logoDark}
-            src={logoDark}
-            alt={"Logo"}
-            w={"100%"}
-          />
+        <Link to={"/"}>
+          <Image src={colorMode === "light" ? logoLight : logoDark} alt={"Logo"} w={"100%"} />
         </Link>
       </Box>
 
@@ -121,8 +112,6 @@ export const Navbar = () => {
             _hover={{
               color: "#f1095d",
             }}
-            color={active === "Places" ? "#f1095d" : ""}
-            onClick={() => setActive("Places")}
           >
             Places
           </Text>

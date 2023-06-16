@@ -2,6 +2,7 @@ import { Flex, Image, Box, Text, Button, Center, useColorMode } from "@chakra-ui
 import donate from "../assets/images/donate.png";
 import lightMap from "../assets/images/lightMap.jpg";
 import darkMap from "../assets/images/darkMap.jpg";
+import { Link } from "react-router-dom";
 
 interface ThanksProp {
   str1: string;
@@ -106,9 +107,11 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
           <Text mt={"1rem"}> Please help us, So we can make more better for you.</Text>
 
           <Box>
-            <Button bg={"#f1095d"} mt={"1rem"}>
-              Donate
-            </Button>
+            <Link to={"https://donate.stripe.com/test_bIYdSgadeaqddTa000"}>
+              <Button bg={"#f1095d"} mt={"1rem"}>
+                Donate
+              </Button>
+            </Link>
           </Box>
           <Image src={donate} alt={"Please donate..."} />
         </Flex>
