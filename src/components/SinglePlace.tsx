@@ -1,25 +1,4 @@
-import { useRef, useState } from "react";
-import {
-  Text,
-  Grid,
-  Image,
-  useColorMode,
-  Icon,
-  Box,
-  Flex,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  FormControl,
-  FormLabel,
-  Input,
-} from "@chakra-ui/react";
+import { Text, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
 import { Places } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillSuitHeartFill } from "react-icons/bs";
@@ -41,8 +20,6 @@ export const SinglePlace = ({
   hostTag,
 }: Places) => {
   const { colorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const initialRef = useRef(null);
 
   return (
     <Box borderRadius="5px" w={"50%"} margin={"auto"} pos={"relative"} mt={"5%"}>
@@ -92,36 +69,9 @@ export const SinglePlace = ({
       <Text>₹ {price}</Text>
 
       {/* eight */}
-      <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"} onClick={onOpen}>
+      <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"}>
         Book Now
       </Button>
-
-      {/* ================================================================= */}
-      <Modal initialFocusRef={initialRef} isCentered isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Check in</FormLabel>
-              <Input ref={initialRef} type="text" placeholder="Check in" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Check out</FormLabel>
-              <Input type="text" placeholder="Check out" />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </Box>
   );
 };

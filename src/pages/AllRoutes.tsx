@@ -6,7 +6,7 @@ import { Housing } from "./Housing";
 import { Community } from "./Community";
 import { Places } from "./Places";
 import { PageNotFound } from "./PageNotFound";
-import { Payment } from "./Payment";
+import { Booking } from "../components/Booking";
 
 export const AllRoutes = () => {
   return (
@@ -17,7 +17,7 @@ export const AllRoutes = () => {
       <Route path={"/housing"} element={<Housing />} />
       <Route path={"/community"} element={<Community />} />
       <Route path={"/places"} element={<Places />} />
-      <Route path={"/booking/:id"} element={<Payment />} />
+      <Route path={"/booking/:id"} element={<Booking />} />
       <Route path={"*"} element={<PageNotFound />} />
     </Routes>
   );
