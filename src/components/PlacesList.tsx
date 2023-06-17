@@ -35,16 +35,12 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
     },
   };
 
-  // let id: number = 0;
-
   useEffect(() => {
-    // if (id) {
-    //   clearTimeout(id);
-    // }
-    // id = setTimeout(() => {
-    //   dispatch(getPlaces(queryParams));
-    // }, 2000);
-    dispatch(getPlaces(queryParams));
+    let timer = setTimeout(() => {
+      dispatch(getPlaces(queryParams));
+    }, 700);
+
+    return () => clearTimeout(timer);
   }, [activePage, query, searchParams]);
 
   return (
