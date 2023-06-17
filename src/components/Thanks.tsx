@@ -108,7 +108,7 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
 
           <Box>
             <Link to={"https://donate.stripe.com/test_bIYdSgadeaqddTa000"}>
-              <Button bg={"#f1095d"} mt={"1rem"}>
+              <Button bg={"#f1095d"} mt={"1rem"} color={"#fff"}>
                 Donate
               </Button>
             </Link>

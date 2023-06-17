@@ -13,7 +13,27 @@ import eight from "../assets/images/8.jpg";
 import nine from "../assets/images/9.jpg";
 import ten from "../assets/images/10.jpg";
 
-import { Center, Box, Image } from "@chakra-ui/react";
+import { Center, Box, Image, Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
+const sliderImages = [
+  { img: one, quote: "Adventure is out there" },
+  { img: two, quote: "Live your life by a compass, not a clock" },
+  { img: three, quote: "Life begins at the end of your comfort zone" },
+  { img: four, quote: "A journey of a thousand miles begins with a single step" },
+  { img: five, quote: "To travel is to live" },
+  {
+    img: six,
+    quote: "Jobs fill your pocket. adventures fill your soul",
+  },
+  { img: seven, quote: "Fill your life with experiences, not things" },
+  {
+    img: eight,
+    quote: " Human cannot discover new oceans unless he has the courage to lose sight of the shore",
+  },
+  { img: nine, quote: "Love is the food of life, travel is dessert" },
+  { img: ten, quote: "Not all classrooms have 4 walls" },
+];
 
 export const ImageSlider = () => {
   const settings = {
@@ -41,36 +61,44 @@ export const ImageSlider = () => {
     >
       <Box w={"80%"} cursor={"pointer"} borderRadius={"10px"}>
         <Slider {...settings}>
-          <Box>
-            <Image src={one} alt="Image 1" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={two} alt="Image 2" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={three} alt="Image 3" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={four} alt="Image 4" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={five} alt="Image 5" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={six} alt="Image 6" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={seven} alt="Image 7" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={eight} alt="Image 8" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={nine} alt="Image 9" borderRadius={"10px"} />
-          </Box>
-          <Box>
-            <Image src={ten} alt="Image 10" borderRadius={"10px"} />
-          </Box>
+          {sliderImages?.map(({ img, quote }, index) => (
+            <Box pos={"relative"}>
+              <Box>
+                <Image src={img} alt={`${index + 1}`} borderRadius={"10px"} />
+              </Box>
+
+              <Box
+                w={"30%"}
+                pos={"absolute"}
+                bg={"#567eb9"}
+                opacity={".6"}
+                borderRadius={"0px 5px 5px 0px"}
+                textAlign={"center"}
+                top={"20px"}
+                p={".2rem"}
+                color={"white"}
+                boxShadow={
+                  "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
+                }
+              >
+                {quote}
+              </Box>
+
+              <Link to={"/places"}>
+                <Button
+                  bgColor={"#f1095d"}
+                  mt={".5rem"}
+                  pos={"absolute"}
+                  bottom={"20px"}
+                  right={"20px"}
+                  opacity={".6"}
+                  color={"white"}
+                >
+                  See More
+                </Button>
+              </Link>
+            </Box>
+          ))}
         </Slider>
       </Box>
     </Center>
