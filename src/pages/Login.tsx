@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Flex,
   Box,
@@ -19,7 +19,7 @@ import { useAppDispatch } from "../redux/store";
 import { userLogin } from "../redux/authentication/action";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Login() {
+export const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const dispatch = useAppDispatch();
@@ -40,13 +40,7 @@ export default function Login() {
   };
 
   return (
-    <Flex
-      minH={"90vh"}
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-      boxShadow={"lg"}
-    >
+    <Flex minH={"92vh"} align={"center"} justify={"center"} boxShadow={"lg"}>
       <Flex>
         <Stack spacing={8} mx={"auto"} maxW={"lg"} minW="350px">
           <Stack align={"center"}>
@@ -59,11 +53,7 @@ export default function Login() {
             <Stack spacing={4}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
-                <Input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                />
+                <Input value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
@@ -108,4 +98,4 @@ export default function Login() {
       </Box>
     </Flex>
   );
-}
+};

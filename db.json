@@ -2840,32 +2840,5 @@
       "price": 56885,
       "rating": "4.93"
     }
-  ],
-  "users": [
-    {
-      "id": "abc@gmail.com",
-      "password": "123456789"
-    }
-  ],
-  "fav": [
-    {
-      "hotel": {
-        "id": 171,
-        "img": "https://a0.muscache.com/im/pictures/153382cf-5d80-4006-9458-3b0cea1c91ee.jpg?im_w=720",
-        "city": "Évry-Courcouronnes,Paris",
-        "country": "France",
-        "type": "room",
-        "desc": "EVRY - Warm room in house (R+1)",
-        "availability": "unavailable",
-        "price": 2837,
-        "review": "13",
-        "rating": "4.54",
-        "host": "Ingrid",
-        "hostImg": "https://a0.muscache.com/im/pictures/user/21c64507-3beb-41b1-b6bb-f503074052f3.jpg?im_w=240",
-        "yOh": "11",
-        "hostTag": "\""
-      },
-      "userID": "abc@gmail.com"
-    }
   ]
 }
