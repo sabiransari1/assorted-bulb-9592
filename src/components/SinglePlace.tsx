@@ -165,7 +165,7 @@ export const SinglePlace = ({
       {/* ==================================================================================== */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bgColor={colorMode === "light" ? "#fff" : "#000"}>
           <ModalHeader>
             <Center fontWeight={"bold"} fontSize={"2xl"}>
               Confirm Booking

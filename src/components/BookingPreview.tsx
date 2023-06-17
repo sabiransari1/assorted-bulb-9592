@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Table, TableContainer, Tbody, Td, Tr } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -38,95 +38,67 @@ export const BookingPreview = () => {
 
   return (
     <Box minH={"100vh"} padding={"5rem 5rem"}>
-      <Box maxW={"50%"} minW={"50%"} margin={"auto"}>
-        <Flex justify={"space-between"}>
-          <Box>
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Location :-
-            </Text>
+      <Box minW={"40%"} maxW={"40%"} margin={"auto"}>
+        <TableContainer>
+          <Table variant="simple">
+            <Tbody>
+              <Tr>
+                <Td>Location</Td>
+                <Td>
+                  {city}, {country}
+                </Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Room Type :-
-            </Text>
+              <Tr>
+                <Td>Residency Type</Td>
+                <Td>{type}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Check in date :-
-            </Text>
+              <Tr>
+                <Td>Check in date</Td>
+                <Td>{checkin}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Check out date :-
-            </Text>
+              <Tr>
+                <Td>Check out date</Td>
+                <Td>{checkout}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Adults :-
-            </Text>
+              <Tr>
+                <Td>Adults</Td>
+                <Td>{adults}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Children :-
-            </Text>
+              <Tr>
+                <Td>Children</Td>
+                <Td>{children}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Infants :-
-            </Text>
+              <Tr>
+                <Td>Infants</Td>
+                <Td>{infants}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Booking Rooms :-
-            </Text>
+              <Tr>
+                <Td>Booking Rooms</Td>
+                <Td>{rooms}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Price :-
-            </Text>
+              <Tr>
+                <Td>Price</Td>
+                <Td>₹ {price}</Td>
+              </Tr>
 
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              Total Amount :-
-            </Text>
-          </Box>
-
-          <Box>
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {city}, {country}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {type}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {checkin}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {checkout}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {adults}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {children}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {infants}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              {rooms}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              ₹ {price}
-            </Text>
-
-            <Text mb={"1rem"} fontSize={"2xl"}>
-              ₹ {rooms * price}
-            </Text>
-          </Box>
-        </Flex>
+              <Tr>
+                <Td>Total Amount</Td>
+                <Td>₹ {rooms * price}</Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
 
         <Link to={"https://book.stripe.com/test_9AQ01qfxybuh5mE5kl"}>
-          <Button w={"100%"} bgColor={"#f1095d"} color={"#fff"}>
+          <Button w={"100%"} bgColor={"#f1095d"} color={"#fff"} borderRadius={"0px 0px 5px 5px"}>
             Confirm Reservation
           </Button>
         </Link>
