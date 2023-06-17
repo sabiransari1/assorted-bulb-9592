@@ -1,7 +1,8 @@
-import { Text, Grid, Image, useColorMode, Icon, Box, Flex } from "@chakra-ui/react";
+import { Text, Grid, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
 import { Home } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const HomeCard = ({ id, img, city, country, price, rating }: Home) => {
   const { colorMode } = useColorMode();
@@ -25,23 +26,38 @@ export const HomeCard = ({ id, img, city, country, price, rating }: Home) => {
       />
 
       {/* second */}
-      <Box pos={"absolute"} left={"87%"} top={"5%"}>
+      <Box pos={"absolute"} top={"5%"} right={"7%"}>
         <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
       </Box>
 
       {/* third */}
+      <Link to={"/places"}>
+        <Button
+          bgColor={"#f1095d"}
+          pos={"absolute"}
+          top={"60%"}
+          right={"7%"}
+          opacity={".6"}
+          color={"white"}
+          size={"sm"}
+        >
+          See More
+        </Button>
+      </Link>
+
+      {/* forth */}
       <Flex justify={"space-between"} mt={".3rem"}>
         <Text fontWeight={"semibold"} color={colorMode === "light" ? "black" : "white"}>
           {city}, {country}
         </Text>
 
-        {/* forth */}
+        {/* fifth */}
         <Box>
           <Icon aria-label="rating" as={AiFillStar} color={"#567eb9"} /> {rating}
         </Box>
       </Flex>
 
-      {/* fifth */}
+      {/* sixth */}
       <Text>₹ {price}</Text>
     </Grid>
   );

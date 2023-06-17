@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const seeMore = [
   { img: eleven, quote: "Great for groups on your trip" },
   { img: twelve, quote: "Most popular around the world" },
-  { img: thirteen, quote: "Enjoy the nature with family" },
+  { img: thirteen, quote: "No road is long with good company" },
 ];
 
 interface SeeMoreProp {
@@ -85,24 +85,26 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
 
       {/* second */}
       <Flex justify={"space-between"}>
-        {seeMore?.map((el, index) => (
+        {seeMore?.map(({ img, quote }, index) => (
           <Box w={"30%"} pos={"relative"} key={index}>
+            <Image src={img} alt={`See more`} borderRadius={"5px"} w={"100%"} />
+
             <Box
               w={"40%"}
               pos={"absolute"}
               bg={"#567eb9"}
               opacity={".6"}
-              borderRadius={"5px 0 0 5px"}
+              borderRadius={"0px 5px  5px 0px"}
               textAlign={"center"}
-              left={"60%"}
               top={"20px"}
               p={".2rem"}
               color={"white"}
+              boxShadow={
+                "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
+              }
             >
-              {el.quote}
+              {quote}
             </Box>
-
-            <Image src={el.img} alt={`See more`} borderRadius={"5px"} w={"100%"} />
 
             <Link to={"/places"}>
               <Button
@@ -110,7 +112,7 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
                 mt={".5rem"}
                 pos={"absolute"}
                 bottom={"20px"}
-                left={"20px"}
+                right={"20px"}
                 opacity={".6"}
                 color={"white"}
               >
