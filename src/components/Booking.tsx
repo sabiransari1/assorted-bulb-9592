@@ -17,7 +17,7 @@ export const Booking = () => {
   }, []);
 
   return (
-    <Box>
+    <Box minH={"85vh"}>
       <SinglePlace {...bookingProduct} />
     </Box>
   );
