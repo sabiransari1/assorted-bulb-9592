@@ -22,9 +22,6 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
   const [residency, setResidency] = useState<string>("");
   const [order, setOrder] = useState<string>("");
 
-  console.log(order);
-  console.log(residency);
-
   const handleResidency = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
     setResidency(value);

@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Grid, Center } from "@chakra-ui/react";
+import { Box, Flex, Text, Grid, Center, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import { getPlaces } from "../redux/places/action";
@@ -6,6 +6,7 @@ import { PlacesCard } from "./PlacesCard";
 import Pagination from "./Pagination";
 import { PlacesFunctionality } from "./PlacesFunctionality";
 import { useSearchParams } from "react-router-dom";
+import { shallowEqual } from "react-redux";
 
 interface PlacesListProp {
   str1: string;
@@ -14,7 +15,10 @@ interface PlacesListProp {
 
 export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((store) => store.placesReducer.data);
+  const { data, isLoading } = useAppSelector(
+    (store) => ({ data: store.placesReducer.data, isLoading: store.placesReducer.isLoading }),
+    shallowEqual
+  );
   const [activePage, setActivePage] = useState<number>(1);
   const [limit] = useState<number>(12);
   const [query, setQuery] = useState<string>("");
@@ -93,30 +97,38 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
       <PlacesFunctionality query={query} setQuery={setQuery} />
 
       {/* second */}
-      <Grid
-        templateColumns={{
-          base: "repeat(1,1fr)",
-          sm: "repeat(2,1fr)",
-          md: "repeat(2,1fr)",
-          lg: "repeat(4,1fr)",
-          xl: "repeat(4,1fr)",
-          "2xl": "repeat(5,1fr)",
-        }}
-        gap={"1rem"}
-      >
-        {data?.map((el) => (
-          <PlacesCard key={el.id} {...el} />
-        ))}
-      </Grid>
+      {isLoading ? (
+        <Center>
+          <Heading>Loading...</Heading>
+        </Center>
+      ) : (
+        <Box>
+          <Grid
+            templateColumns={{
+              base: "repeat(1,1fr)",
+              sm: "repeat(2,1fr)",
+              md: "repeat(2,1fr)",
+              lg: "repeat(4,1fr)",
+              xl: "repeat(4,1fr)",
+              "2xl": "repeat(5,1fr)",
+            }}
+            gap={"1rem"}
+          >
+            {data?.map((el) => (
+              <PlacesCard key={el.id} {...el} />
+            ))}
+          </Grid>
 
-      <Flex justifyContent="center" p={6}>
-        <Pagination
-          placesLength={data?.length}
-          perPage={2}
-          activePage={activePage}
-          handlePageChange={handlePageChange}
-        />
-      </Flex>
+          <Flex justifyContent="center" p={6}>
+            <Pagination
+              placesLength={data?.length}
+              perPage={2}
+              activePage={activePage}
+              handlePageChange={handlePageChange}
+            />
+          </Flex>
+        </Box>
+      )}
     </Box>
   );
 };

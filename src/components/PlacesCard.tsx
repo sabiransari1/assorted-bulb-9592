@@ -41,7 +41,7 @@ export const PlacesCard = ({
       />
 
       {/* second */}
-      <Box pos={"absolute"} left={"87%"} top={"5%"}>
+      <Box pos={"absolute"} top={"5%"} right={"7%"}>
         <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
       </Box>
 

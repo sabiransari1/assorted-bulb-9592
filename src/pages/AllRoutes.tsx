@@ -7,6 +7,7 @@ import { Community } from "./Community";
 import { Login } from "./Login";
 import { Places } from "./Places";
 import { Booking } from "../components/Booking";
+import { BookingPreview } from "../components/BookingPreview";
 import { PageNotFound } from "./PageNotFound";
 
 export const AllRoutes = () => {
@@ -20,6 +21,7 @@ export const AllRoutes = () => {
       <Route path={"/login"} element={<Login />} />
       <Route path={"/places"} element={<Places />} />
       <Route path={"/booking/:id"} element={<Booking />} />
+      <Route path={"/bookingpreview"} element={<BookingPreview />} />
       <Route path={"*"} element={<PageNotFound />} />
     </Routes>
   );

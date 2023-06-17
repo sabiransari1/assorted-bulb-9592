@@ -1,4 +1,4 @@
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 
 interface IPaginationProps {
   placesLength: number;
@@ -22,7 +22,7 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
           Prev
         </Button>
       ) : (
-        "No result found, Please try again..."
+        <Heading>No result found, Please try again...</Heading>
       )}
 
       {/* {....} */}

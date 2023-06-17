@@ -62,7 +62,7 @@ export const ImageSlider = () => {
       <Box w={"80%"} cursor={"pointer"} borderRadius={"10px"}>
         <Slider {...settings}>
           {sliderImages?.map(({ img, quote }, index) => (
-            <Box pos={"relative"}>
+            <Box pos={"relative"} key={index}>
               <Box>
                 <Image src={img} alt={`${index + 1}`} borderRadius={"10px"} />
               </Box>
