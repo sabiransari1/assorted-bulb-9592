@@ -170,12 +170,14 @@ export const Navbar = () => {
 
         {/* forth.2 */}
         <Box>
-          <IconButton
-            aria-label={"auth"}
-            icon={isAuth ? <FaUserSlash /> : <FaUser />}
-            size={"sm"}
-            isRound
-          />
+          <Link to={"/login"}>
+            <IconButton
+              aria-label={"auth"}
+              icon={isAuth ? <FaUserSlash /> : <FaUser />}
+              size={"sm"}
+              isRound
+            />
+          </Link>
         </Box>
 
         {/* forth.3 */}
