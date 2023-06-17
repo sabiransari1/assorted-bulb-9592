@@ -3,7 +3,7 @@ import { PlacesList } from "../components/PlacesList";
 
 export const Places = () => {
   return (
-    <Box>
+    <Box minHeight={"100vh"}>
       <PlacesList str1={"Search your"} str2={"destination"} />
     </Box>
   );
