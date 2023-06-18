@@ -47,6 +47,11 @@ export const HomeCard = ({ id, img, city, country, price, rating }: Home) => {
             xl: "sm",
             "2xl": "md",
           }}
+          _hover={{
+            bg: "#fff",
+            border: "4px double #f1095d",
+            color: "#f1095d",
+          }}
         >
           See More
         </Button>

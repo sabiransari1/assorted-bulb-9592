@@ -172,7 +172,18 @@ export const SinglePlace = ({
         <Text>₹ {price}</Text>
 
         {/* eight */}
-        <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"} onClick={onOpen}>
+        <Button
+          w={"100%"}
+          bgColor={"#f1095d"}
+          mt={".3rem"}
+          color={"white"}
+          onClick={onOpen}
+          _hover={{
+            bg: "#fff",
+            border: "4px double #f1095d",
+            color: "#f1095d",
+          }}
+        >
           Book Now
         </Button>
       </Box>
@@ -298,6 +309,11 @@ export const SinglePlace = ({
                   bgColor={"#f1095d"}
                   color={"white"}
                   w={"100%"}
+                  _hover={{
+                    bg: "#fff",
+                    border: "4px double #f1095d",
+                    color: "#f1095d",
+                  }}
                   onClick={handleBookingPreview}
                 >
                   Booking Preview

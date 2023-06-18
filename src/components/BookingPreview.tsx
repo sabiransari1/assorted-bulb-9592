@@ -118,7 +118,17 @@ export const BookingPreview = () => {
         </TableContainer>
 
         <Link to={"https://book.stripe.com/test_9AQ01qfxybuh5mE5kl"}>
-          <Button w={"100%"} bgColor={"#f1095d"} color={"#fff"} borderRadius={"0px 0px 5px 5px"}>
+          <Button
+            w={"100%"}
+            bgColor={"#f1095d"}
+            color={"#fff"}
+            borderRadius={"0px 0px 5px 5px"}
+            _hover={{
+              bg: "#fff",
+              border: "4px double #f1095d",
+              color: "#f1095d",
+            }}
+          >
             Confirm Reservation
           </Button>
         </Link>

@@ -59,7 +59,17 @@ export const ImageSlider = () => {
         "2xl": "3rem 5rem",
       }}
     >
-      <Box w={"80%"} cursor={"pointer"} borderRadius={"10px"}>
+      <Box
+        w={{
+          base: "100%",
+          sm: "100%",
+          md: "80%",
+          lg: "80%",
+          xl: "80%",
+          "2xl": "80%",
+        }}
+        borderRadius={"10px"}
+      >
         <Slider {...settings}>
           {sliderImages?.map(({ img, quote }, index) => (
             <Box pos={"relative"} key={index}>
@@ -108,6 +118,11 @@ export const ImageSlider = () => {
                     lg: "md",
                     xl: "md",
                     "2xl": "md",
+                  }}
+                  _hover={{
+                    bg: "#fff",
+                    border: "4px double #f1095d",
+                    color: "#f1095d",
                   }}
                 >
                   See More

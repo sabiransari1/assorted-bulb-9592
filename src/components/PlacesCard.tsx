@@ -87,6 +87,11 @@ export const PlacesCard = ({
           mt={".3rem"}
           color={"white"}
           isDisabled={availability === "unavailable"}
+          _hover={{
+            bg: "#fff",
+            border: "4px double #f1095d",
+            color: "#f1095d",
+          }}
         >
           Book Now
         </Button>

@@ -91,21 +91,31 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
         }}
       >
         {/* second.1 */}
-        <Box borderRadius={"5px 0px 0px 5px"}>
+        <Box
+          borderRadius={{
+            base: "5px",
+            sm: "5px",
+            md: "5px",
+            lg: "5px 0px 0px 5px",
+            xl: "5px 0px 0px 5px",
+            "2xl": "5px 0px 0px 5px",
+          }}
+        >
           <Image
             src={colorMode === "light" ? lightMap : darkMap}
-            borderRadius={"5px 0px 0px 5px"}
+            borderRadius={{
+              base: "5px",
+              sm: "5px",
+              md: "5px",
+              lg: "5px 0px 0px 5px",
+              xl: "5px 0px 0px 5px",
+              "2xl": "5px 0px 0px 5px",
+            }}
           />
         </Box>
 
         {/* second.2 */}
-        <Flex
-          p={"1rem 0 1rem 1rem"}
-          direction={"column"}
-          justify={"center"}
-          textAlign={"right"}
-          borderRadius={"0px 0px 5px 5px"}
-        >
+        <Flex p={"1rem 0 1rem 1rem"} direction={"column"} justify={"center"} textAlign={"right"}>
           <Text>
             SAFAR wouldn't be what it is without a dedicated community of passionate travelers.
           </Text>
@@ -116,7 +126,16 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
 
           <Box>
             <Link to={"https://donate.stripe.com/test_bIYdSgadeaqddTa000"}>
-              <Button bg={"#f1095d"} mt={"1rem"} color={"#fff"}>
+              <Button
+                bg={"#f1095d"}
+                mt={"1rem"}
+                color={"#fff"}
+                _hover={{
+                  bg: "#fff",
+                  border: "4px double #f1095d",
+                  color: "#f1095d",
+                }}
+              >
                 Donate
               </Button>
             </Link>

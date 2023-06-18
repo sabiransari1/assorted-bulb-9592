@@ -114,6 +114,13 @@ export const Footer = () => {
         <Center textAlign={"center"}>
           Designed and build by Sabir Ansari, 2023 All rights reserved.
         </Center>
+
+        <Flex justify={"space-around"}>
+          <Image src={linkedin} w={"15%"} />
+          <Image src={twitter} w={"15%"} />
+          <Image src={facebook} w={"15%"} />
+          <Image src={instagram} w={"15%"} />
+        </Flex>
       </Box>
     </Flex>
   );

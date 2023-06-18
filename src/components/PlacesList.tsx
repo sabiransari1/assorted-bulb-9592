@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Grid, Center, Heading } from "@chakra-ui/react";
+import { Box, Flex, Text, Grid, Center, Stack, Skeleton } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import { getPlaces } from "../redux/places/action";
@@ -12,6 +12,8 @@ interface PlacesListProp {
   str1: string;
   str2: string;
 }
+
+const skeleton: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
   const dispatch = useAppDispatch();
@@ -98,7 +100,28 @@ export const PlacesList = ({ str1, str2 }: PlacesListProp) => {
 
       {/* second */}
       {isLoading ? (
-        <Heading textAlign={"center"}>Loading...</Heading>
+        <Grid
+          templateColumns={{
+            base: "repeat(1,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            lg: "repeat(4,1fr)",
+            xl: "repeat(4,1fr)",
+            "2xl": "repeat(5,1fr)",
+          }}
+          gap={"1rem"}
+        >
+          {skeleton?.map((el) => (
+            <Stack key={el}>
+              <Skeleton height="200px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="20px" borderRadius={"5px"} />
+              <Skeleton height="30px" borderRadius={"5px"} />
+            </Stack>
+          ))}
+        </Grid>
       ) : (
         <Box>
           <Grid
