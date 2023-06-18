@@ -111,7 +111,7 @@ export const Footer = () => {
           "2xl": "none",
         }}
       >
-        <Center fontSize={"2xl"} textAlign={"center"}>
+        <Center textAlign={"center"}>
           Designed and build by Sabir Ansari, 2023 All rights reserved.
         </Center>
       </Box>

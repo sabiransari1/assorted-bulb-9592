@@ -18,7 +18,6 @@ export const Booking = () => {
 
   return (
     <Box
-      minH={"100vh"}
       p={{
         base: "0rem 1rem",
         sm: "0rem 1rem",
@@ -27,6 +26,7 @@ export const Booking = () => {
         xl: "0rem 5rem",
         "2xl": "0rem 5rem",
       }}
+      minH={"100vh"}
     >
       <SinglePlace {...bookingProduct} />
     </Box>

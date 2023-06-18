@@ -122,58 +122,60 @@ export const SinglePlace = ({
       }}
       margin={"auto"}
       borderRadius="5px"
-      pos={"relative"}
       mt={"5%"}
     >
       {/* first */}
-      <Image src={img} alt={city} w={"100%"} maxH={"500px"} borderRadius="5px" />
+      <Box>
+        {/* first */}
+        <Image src={img} alt={city} w={"100%"} maxH={"500px"} borderRadius="5px" />
 
-      {/* second */}
-      <Box pos={"absolute"} top={"5%"} right={"7%"}>
-        <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
-      </Box>
+        {/* second */}
+        <Box pos={"absolute"} top={"5%"} right={"7%"}>
+          <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
+        </Box>
 
-      {/* third */}
-      <Flex justify={"space-between"} mt={".3rem"}>
-        <Text fontWeight={"semibold"} color={colorMode === "light" ? "black" : "white"}>
-          {city}, {country}
+        {/* third */}
+        <Flex justify={"space-between"} mt={".3rem"}>
+          <Text fontWeight={"semibold"} color={colorMode === "light" ? "black" : "white"}>
+            {city}, {country}
+          </Text>
+
+          <Box>
+            <Icon aria-label="rating" as={AiFillStar} color={"#567eb9"} /> {rating}
+          </Box>
+        </Flex>
+
+        {/* forth */}
+        <Text
+          color={"#788097"}
+          fontSize={{
+            base: "1xl",
+            sm: "1xl",
+            md: "1xl",
+            lg: "1xl",
+            xl: "1xl",
+            "2xl": "2xl",
+          }}
+        >
+          {desc}
         </Text>
 
-        <Box>
-          <Icon aria-label="rating" as={AiFillStar} color={"#567eb9"} /> {rating}
-        </Box>
-      </Flex>
+        {/* fifth */}
+        <Text>{type}</Text>
 
-      {/* forth */}
-      <Text
-        color={"#788097"}
-        fontSize={{
-          base: "1xl",
-          sm: "1xl",
-          md: "1xl",
-          lg: "1xl",
-          xl: "1xl",
-          "2xl": "2xl",
-        }}
-      >
-        {desc}
-      </Text>
+        {/* sixth */}
+        <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>
+          {availability === "available" ? "Available" : "Not Available"}
+        </Text>
 
-      {/* fifth */}
-      <Text>{type}</Text>
+        {/* seventh */}
+        <Text>₹ {price}</Text>
 
-      {/* sixth */}
-      <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>
-        {availability === "available" ? "Available" : "Not Available"}
-      </Text>
-
-      {/* seventh */}
-      <Text>₹ {price}</Text>
-
-      {/* eight */}
-      <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"} onClick={onOpen}>
-        Book Now
-      </Button>
+        {/* eight */}
+        <Button w={"100%"} bgColor={"#f1095d"} mt={".3rem"} color={"white"} onClick={onOpen}>
+          Book Now
+        </Button>
+      </Box>
 
       {/* ==================================================================================== */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
