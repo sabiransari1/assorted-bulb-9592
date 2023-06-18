@@ -39,7 +39,14 @@ export const HomeCard = ({ id, img, city, country, price, rating }: Home) => {
           right={"7%"}
           opacity={".6"}
           color={"white"}
-          size={"sm"}
+          size={{
+            base: "xs",
+            sm: "sm",
+            md: "sm",
+            lg: "sm",
+            xl: "sm",
+            "2xl": "md",
+          }}
         >
           See More
         </Button>

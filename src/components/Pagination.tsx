@@ -18,11 +18,19 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
           bg={"#daeff0"}
           isDisabled={activePage === 1}
           onClick={() => handlePageChange(activePage - 1)}
+          display={{
+            base: "none",
+            sm: "block",
+            md: "block",
+            lg: "block",
+            xl: "block",
+            "2xl": "block",
+          }}
         >
           Prev
         </Button>
       ) : (
-        <Heading>No result found, Please try again...</Heading>
+        <Heading textAlign={"center"}>No result found, Please try again...</Heading>
       )}
 
       {/* {....} */}
@@ -57,6 +65,14 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
           bg={"#daeff0"}
           isDisabled={activePage === totalPages}
           onClick={() => handlePageChange(activePage + 1)}
+          display={{
+            base: "none",
+            sm: "block",
+            md: "block",
+            lg: "block",
+            xl: "block",
+            "2xl": "block",
+          }}
         >
           Next
         </Button>

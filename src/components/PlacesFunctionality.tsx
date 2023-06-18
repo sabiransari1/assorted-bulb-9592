@@ -43,7 +43,17 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
   return (
     <Box p={"2rem 0"}>
       {/* search bar */}
-      <Box w={"50%"} margin={"auto"}>
+      <Box
+        w={{
+          base: "100%",
+          sm: "100%",
+          md: "80%",
+          lg: "50%",
+          xl: "50%",
+          "2xl": "50%",
+        }}
+        margin={"auto"}
+      >
         <InputGroup>
           <InputLeftElement>
             <IconButton aria-label={"search"} icon={<MdSearch />} cursor={"default"} />
@@ -72,7 +82,18 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
 
       {/* filter & sorting */}
       {/* filter by residency */}
-      <Flex justify={"space-evenly"} p={"2rem 0"}>
+      <Flex
+        justify={"space-evenly"}
+        p={"2rem 0"}
+        direction={{
+          base: "column",
+          sm: "column",
+          md: "row",
+          lg: "row",
+          xl: "row",
+          "2xl": "row",
+        }}
+      >
         <Box>
           <Select
             onChange={handleResidency}
@@ -81,16 +102,15 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
             border={"none"}
             cursor={"pointer"}
           >
-            {/* <option value={""}>Choose your residency preferences</option> */}
-            <option value={"flat"}>Flat</option>
-            <option value={"room"}>Room</option>
-            <option value={"villa"}>Villa</option>
-            <option value={"hotel"}>Hotel</option>
-            <option value={"cottage"}>Cottage</option>
-            <option value={"suiteRoom"}>Suite Room</option>
-            <option value={"penthouse"}>Pent House</option>
-            <option value={"guesthouse"}>Guest House</option>
-            <option value={"studioapartment"}>Studio Apartment</option>
+            <option value={"Flat"}>Flat</option>
+            <option value={"Room"}>Room</option>
+            <option value={"Villa"}>Villa</option>
+            <option value={"Hotel"}>Hotel</option>
+            <option value={"Cottage"}>Cottage</option>
+            <option value={"Suite Room"}>Suite Room</option>
+            <option value={"Penthouse"}>Pent House</option>
+            <option value={"Guesthouse"}>Guest House</option>
+            <option value={"Studio Apartment"}>Studio Apartment</option>
           </Select>
         </Box>
 
@@ -103,7 +123,6 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
             border={"none"}
             cursor={"pointer"}
           >
-            {/* <option value={""}>Choose your budget preferences</option> */}
             <option value={"asc"}>Lower to higher</option>
             <option value={"desc"}>Higher to lower</option>
           </Select>

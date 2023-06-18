@@ -37,8 +37,28 @@ export const BookingPreview = () => {
   }, []);
 
   return (
-    <Box minH={"100vh"} padding={"5rem 5rem"}>
-      <Box minW={"40%"} maxW={"40%"} margin={"auto"}>
+    <Box
+      minH={"100vh"}
+      p={{
+        base: "1rem 1rem",
+        sm: "1rem 1rem",
+        md: "2rem 2rem",
+        lg: "2rem 5rem",
+        xl: "2rem 5rem",
+        "2xl": "2rem 5rem",
+      }}
+    >
+      <Box
+        w={{
+          base: "100%",
+          sm: "100%",
+          md: "80%",
+          lg: "50%",
+          xl: "50%",
+          "2xl": "50%",
+        }}
+        margin={"auto"}
+      >
         <TableContainer>
           <Table variant="simple">
             <Tbody>

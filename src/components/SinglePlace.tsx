@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import {
   Text,
   Image,
@@ -111,7 +111,20 @@ export const SinglePlace = ({
   };
 
   return (
-    <Box borderRadius="5px" w={"50%"} margin={"auto"} pos={"relative"} mt={"5%"}>
+    <Box
+      w={{
+        base: "100%",
+        sm: "100%",
+        md: "80%",
+        lg: "50%",
+        xl: "50%",
+        "2xl": "50%",
+      }}
+      margin={"auto"}
+      borderRadius="5px"
+      pos={"relative"}
+      mt={"5%"}
+    >
       {/* first */}
       <Image src={img} alt={city} w={"100%"} maxH={"500px"} borderRadius="5px" />
 
@@ -147,7 +160,7 @@ export const SinglePlace = ({
       </Text>
 
       {/* fifth */}
-      <Text>{type && type.toUpperCase()}</Text>
+      <Text>{type}</Text>
 
       {/* sixth */}
       <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>
@@ -360,7 +373,7 @@ export const SinglePlace = ({
 //       </Text>
 
 //       {/* fifth */}
-//       <Text>{type && type.toUpperCase()}</Text>
+//       <Text>{type}</Text>
 
 //       {/* sixth */}
 //       <Text color={availability === "available" ? "#567eb9" : "#f1095d"}>

@@ -29,9 +29,9 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
         <Flex>
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -46,9 +46,9 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
 
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -62,9 +62,9 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
 
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -80,7 +80,16 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
       </Center>
 
       {/* second */}
-      <Flex>
+      <Flex
+        direction={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "row",
+          xl: "row",
+          "2xl": "row",
+        }}
+      >
         {/* second.1 */}
         <Box borderRadius={"5px 0px 0px 5px"}>
           <Image
@@ -91,7 +100,6 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
 
         {/* second.2 */}
         <Flex
-          w={"50%"}
           p={"1rem 0 1rem 1rem"}
           direction={"column"}
           justify={"center"}
@@ -113,7 +121,18 @@ export const Thanks = ({ str1, str2, str3 }: ThanksProp) => {
               </Button>
             </Link>
           </Box>
-          <Image src={donate} alt={"Please donate..."} />
+          <Image
+            src={donate}
+            alt={"Please donate..."}
+            display={{
+              base: "none",
+              sm: "none",
+              md: "none",
+              lg: "block",
+              xl: "block",
+              "2xl": "block",
+            }}
+          />
         </Flex>
       </Flex>
     </Box>

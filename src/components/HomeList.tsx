@@ -30,12 +30,22 @@ export const HomeList = ({ str1, str2 }: HomeListProp) => {
     >
       {/* first */}
       <Center mb={"2rem"}>
-        <Flex>
+        <Flex
+          direction={{
+            base: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
+            "2xl": "row",
+          }}
+          textAlign={"center"}
+        >
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -49,9 +59,9 @@ export const HomeList = ({ str1, str2 }: HomeListProp) => {
           </Text>
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -69,7 +79,7 @@ export const HomeList = ({ str1, str2 }: HomeListProp) => {
         templateColumns={{
           base: "repeat(1,1fr)",
           sm: "repeat(2,1fr)",
-          md: "repeat(2,1fr)",
+          md: "repeat(3,1fr)",
           lg: "repeat(4,1fr)",
           xl: "repeat(4,1fr)",
           "2xl": "repeat(5,1fr)",

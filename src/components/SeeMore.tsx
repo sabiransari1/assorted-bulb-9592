@@ -30,12 +30,22 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
     >
       {/* first */}
       <Center mb={"2rem"}>
-        <Flex>
+        <Flex
+          direction={{
+            base: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
+            "2xl": "row",
+          }}
+          textAlign={"center"}
+        >
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -50,9 +60,9 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
 
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -66,9 +76,9 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
 
           <Text
             fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
+              base: "2xl",
+              sm: "2xl",
+              md: "3xl",
               lg: "4xl",
               xl: "4xl",
               "2xl": "4xl",
@@ -86,7 +96,7 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
       {/* second */}
       <Flex justify={"space-between"}>
         {seeMore?.map(({ img, quote }, index) => (
-          <Box w={"30%"} pos={"relative"} key={index}>
+          <Flex w={"30%"} pos={"relative"} key={index}>
             <Image src={img} alt={`See more`} borderRadius={"5px"} w={"100%"} />
 
             <Box
@@ -102,6 +112,14 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
               boxShadow={
                 "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
               }
+              display={{
+                base: "none",
+                sm: "none",
+                md: "flex",
+                lg: "flex",
+                xl: "flex",
+                "2xl": "flex",
+              }}
             >
               {quote}
             </Box>
@@ -115,11 +133,19 @@ export const SeeMore = ({ str1, str2, str3 }: SeeMoreProp) => {
                 right={"20px"}
                 opacity={".6"}
                 color={"white"}
+                size={{
+                  base: "xs",
+                  sm: "sm",
+                  md: "sm",
+                  lg: "md",
+                  xl: "md",
+                  "2xl": "md",
+                }}
               >
                 See More
               </Button>
             </Link>
-          </Box>
+          </Flex>
         ))}
       </Flex>
     </Box>

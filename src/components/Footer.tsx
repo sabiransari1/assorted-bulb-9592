@@ -1,4 +1,4 @@
-import { Box, Flex, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import googlePlay from "../assets/images/googlePlay.png";
 import appleApp from "../assets/images/appleApp.png";
 import linkedin from "../assets/images/linkedin.png";
@@ -20,79 +20,101 @@ export const Footer = () => {
       justify={"space-between"}
     >
       {/* first */}
-      <Box>
-        <Text color={"#567eb9"} fontWeight={"bold"}>
-          Support
-        </Text>
-        <UnorderedList>
-          <ListItem>Help Center</ListItem>
-          <ListItem>Safety information</ListItem>
-          <ListItem>Cancellation options</ListItem>
-          <ListItem>Our COVID-19 Response</ListItem>
-          <ListItem>Supporting people with disabilities</ListItem>
-          <ListItem>Report a neighborthood concern</ListItem>
-        </UnorderedList>
+      <Box
+        display={{
+          base: "none",
+          sm: "none",
+          md: "flex",
+          lg: "flex",
+          xl: "flex",
+          "2xl": "flex",
+        }}
+      >
+        {/* first */}
+        <Box>
+          <Text color={"#567eb9"} fontWeight={"bold"}>
+            Support
+          </Text>
+          <UnorderedList>
+            <ListItem>Help Center</ListItem>
+            <ListItem>Safety information</ListItem>
+            <ListItem>Cancellation options</ListItem>
+            <ListItem>Our COVID-19 Response</ListItem>
+            <ListItem>Supporting people with disabilities</ListItem>
+            <ListItem>Report a neighborthood concern</ListItem>
+          </UnorderedList>
+        </Box>
+
+        {/* second */}
+        <Box>
+          <Text color={"#567eb9"} fontWeight={"bold"}>
+            Community
+          </Text>
+          <UnorderedList>
+            <ListItem>Disaster relief housing</ListItem>
+            <ListItem>Support</ListItem>
+            <ListItem>Cellebrating diversity & belonging</ListItem>
+            <ListItem>Combating discrimination</ListItem>
+          </UnorderedList>
+        </Box>
+
+        {/* third */}
+        <Box>
+          <Text color={"#567eb9"} fontWeight={"bold"}>
+            Housing
+          </Text>
+          <UnorderedList>
+            <ListItem>Try housing</ListItem>
+            <ListItem>Protection for Homeowner</ListItem>
+            <ListItem>Explore housing resources</ListItem>
+            <ListItem>Visit our community forum</ListItem>
+            <ListItem>How to homeowner responsiblty</ListItem>
+          </UnorderedList>
+        </Box>
+
+        {/* fourth */}
+        <Box>
+          <Text color={"#567eb9"} fontWeight={"bold"}>
+            About
+          </Text>
+          <UnorderedList>
+            <ListItem>Newsroom</ListItem>
+            <ListItem>Learn new features</ListItem>
+            <ListItem>Letter to foundres</ListItem>
+            <ListItem>Careers</ListItem>
+            <ListItem>Investors</ListItem>
+          </UnorderedList>
+        </Box>
+
+        {/* fifth */}
+        <Flex w={"20%"} direction={"column"} gap={".5rem"} p={"1rem 0 1rem 1rem"}>
+          <Image src={googlePlay} borderRadius={"5px"} />
+          <Image src={appleApp} borderRadius={"5px"} />
+
+          <Flex w={"25%"}>
+            <Image src={linkedin} />
+            <Image src={twitter} />
+            <Image src={facebook} />
+            <Image src={instagram} />
+          </Flex>
+        </Flex>
       </Box>
 
       {/* second */}
-      <Box>
-        <Text color={"#567eb9"} fontWeight={"bold"}>
-          Community
-        </Text>
-        <UnorderedList>
-          <ListItem>Disaster relief housing</ListItem>
-          <ListItem>Support</ListItem>
-          <ListItem>Cellebrating diversity & belonging</ListItem>
-          <ListItem>Combating discrimination</ListItem>
-        </UnorderedList>
-      </Box>
-
-      {/* third */}
-      <Box>
-        <Text color={"#567eb9"} fontWeight={"bold"}>
-          Housing
-        </Text>
-        <UnorderedList>
-          <ListItem>Try housing</ListItem>
-          <ListItem>Protection for Homeowner</ListItem>
-          <ListItem>Explore housing resources</ListItem>
-          <ListItem>Visit our community forum</ListItem>
-          <ListItem>How to homeowner responsiblty</ListItem>
-        </UnorderedList>
-      </Box>
-
-      {/* fourth */}
-      <Box>
-        <Text color={"#567eb9"} fontWeight={"bold"}>
-          About
-        </Text>
-        <UnorderedList>
-          <ListItem>Newsroom</ListItem>
-          <ListItem>Learn new features</ListItem>
-          <ListItem>Letter to foundres</ListItem>
-          <ListItem>Careers</ListItem>
-          <ListItem>Investors</ListItem>
-        </UnorderedList>
-      </Box>
-
-      {/* fifth */}
-      <Flex
-        w={"20%"}
-        direction={"column"}
-        // justify={"space-between"}
-        gap={".5rem"}
-        p={"1rem 0 1rem 1rem"}
+      <Box
+        display={{
+          base: "block",
+          sm: "block",
+          md: "none",
+          lg: "none",
+          xl: "none",
+          "2xl": "none",
+        }}
       >
-        <Image src={googlePlay} borderRadius={"5px"} />
-        <Image src={appleApp} borderRadius={"5px"} />
-
-        <Flex w={"25%"}>
-          <Image src={linkedin} />
-          <Image src={twitter} />
-          <Image src={facebook} />
-          <Image src={instagram} />
-        </Flex>
-      </Flex>
+        <Center fontSize={"2xl"} textAlign={"center"}>
+          Designed and build by Sabir Ansari, 2023 All rights reserved.
+        </Center>
+      </Box>
     </Flex>
   );
 };

@@ -27,6 +27,8 @@ export const Navbar = () => {
 
   return (
     <Flex
+      minW={"100%"}
+      maxW={"100%"}
       minH={"80px"}
       maxH={"80px"}
       align={"center"}
@@ -45,7 +47,16 @@ export const Navbar = () => {
       }}
     >
       {/* first */}
-      <Box display={"none"}>
+      <Box
+        display={{
+          base: "block",
+          sm: "block",
+          md: "none",
+          lg: "none",
+          xl: "none",
+          "2xl": "none",
+        }}
+      >
         <IconButton
           aria-label={"hamburger"}
           icon={<GiHamburgerMenu />}
@@ -67,10 +78,6 @@ export const Navbar = () => {
               }}
               bg={colorMode === "light" ? "white" : "black"}
             >
-              <Link to={"/"} onClick={onClose}>
-                <Text>Home</Text>
-              </Link>
-
               <Link to={"/places"} onClick={onClose}>
                 <Text>Places</Text>
               </Link>
@@ -96,14 +103,36 @@ export const Navbar = () => {
       </Box>
 
       {/* second */}
-      <Box w={"5%"}>
+      <Box
+        w={{
+          base: "15%",
+          sm: "10%",
+          md: "8%",
+          lg: "8%",
+          xl: "7%",
+          "2xl": "7%",
+        }}
+      >
         <Link to={"/"}>
           <Image src={colorMode === "light" ? logoLight : logoDark} alt={"Logo"} w={"100%"} />
         </Link>
       </Box>
 
       {/* third */}
-      <Flex w={"50%"} justify={"space-between"} fontSize={"2xl"} gap={".5rem"}>
+      <Flex
+        w={"50%"}
+        justify={"space-between"}
+        fontSize={"2xl"}
+        gap={".5rem"}
+        display={{
+          base: "none",
+          sm: "none",
+          md: "flex",
+          lg: "flex",
+          xl: "flex",
+          "2xl": "flex",
+        }}
+      >
         <Link to={"/places"}>
           <Text
             _hover={{
@@ -156,7 +185,7 @@ export const Navbar = () => {
       </Flex>
 
       {/* forth */}
-      <Flex w={"12%"} justify={"space-between"}>
+      <Flex>
         {/* forth.1 */}
         <Box>
           <IconButton

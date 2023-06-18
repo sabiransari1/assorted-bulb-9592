@@ -64,7 +64,7 @@ export const ImageSlider = () => {
           {sliderImages?.map(({ img, quote }, index) => (
             <Box pos={"relative"} key={index}>
               <Box>
-                <Image src={img} alt={`${index + 1}`} borderRadius={"10px"} />
+                <Image src={img} alt={`${index + 1}`} borderRadius={"10px"} w={"100%"} />
               </Box>
 
               <Box
@@ -80,6 +80,14 @@ export const ImageSlider = () => {
                 boxShadow={
                   "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
                 }
+                display={{
+                  base: "none",
+                  sm: "none",
+                  md: "flex",
+                  lg: "flex",
+                  xl: "flex",
+                  "2xl": "flex",
+                }}
               >
                 {quote}
               </Box>
@@ -93,6 +101,14 @@ export const ImageSlider = () => {
                   right={"20px"}
                   opacity={".6"}
                   color={"white"}
+                  size={{
+                    base: "xs",
+                    sm: "sm",
+                    md: "sm",
+                    lg: "md",
+                    xl: "md",
+                    "2xl": "md",
+                  }}
                 >
                   See More
                 </Button>

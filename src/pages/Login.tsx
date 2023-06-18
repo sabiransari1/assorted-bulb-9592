@@ -40,7 +40,7 @@ export const Login = () => {
   };
 
   return (
-    <Flex minH={"92vh"} align={"center"} justify={"center"} boxShadow={"lg"}>
+    <Flex minH={"100vh"} align={"center"} justify={"center"} boxShadow={"lg"}>
       <Flex>
         <Stack spacing={8} mx={"auto"} maxW={"lg"} minW="350px">
           <Stack align={"center"}>

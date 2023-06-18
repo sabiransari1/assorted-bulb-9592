@@ -17,7 +17,17 @@ export const Booking = () => {
   }, []);
 
   return (
-    <Box minH={"85vh"}>
+    <Box
+      minH={"100vh"}
+      p={{
+        base: "0rem 1rem",
+        sm: "0rem 1rem",
+        md: "0rem 2rem",
+        lg: "0rem 5rem",
+        xl: "0rem 5rem",
+        "2xl": "0rem 5rem",
+      }}
+    >
       <SinglePlace {...bookingProduct} />
     </Box>
   );
