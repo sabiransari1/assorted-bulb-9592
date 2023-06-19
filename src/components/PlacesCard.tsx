@@ -80,7 +80,7 @@ export const PlacesCard = ({
       <Text>₹ {price}</Text>
 
       {/* seventh */}
-      <Link to={`/booking/${id}`}>
+      {availability === "unavailable" ? (
         <Button
           w={"100%"}
           bgColor={"#f1095d"}
@@ -88,14 +88,29 @@ export const PlacesCard = ({
           color={"white"}
           isDisabled={availability === "unavailable"}
           _hover={{
-            bg: "#fff",
-            border: "4px double #f1095d",
-            color: "#f1095d",
+            bg: "null",
           }}
         >
           Book Now
         </Button>
-      </Link>
+      ) : (
+        <Link to={`/booking/${id}`}>
+          <Button
+            w={"100%"}
+            bgColor={"#f1095d"}
+            mt={".3rem"}
+            color={"white"}
+            isDisabled={availability === "unavailable"}
+            _hover={{
+              bg: "#fff",
+              border: "4px double #f1095d",
+              color: "#f1095d",
+            }}
+          >
+            Book Now
+          </Button>
+        </Link>
+      )}
     </Grid>
   );
 };

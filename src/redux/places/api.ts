@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Home, Places } from "../../utils/types";
 
-let URL = "http://localhost:8080";
+let URL = `https://safer.onrender.com`;
 
 export const getHomeAPI = async () => {
   try {
