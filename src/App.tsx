@@ -2,6 +2,7 @@ import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { AllRoutes } from "./pages/AllRoutes";
 import { Box, useColorModeValue } from "@chakra-ui/react";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const bgColor = useColorModeValue("white", "black");
@@ -11,6 +12,7 @@ function App() {
     <Box bgColor={bgColor} color={color}>
       <Navbar />
       <AllRoutes />
+      {/* <SignUp /> */}
     </Box>
   );
 }

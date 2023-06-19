@@ -23,7 +23,7 @@ import { useAppSelector } from "../redux/store";
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuth = useAppSelector((store) => store.authReducer.isAuth);
+  const isAuth: any = useAppSelector((store) => store.authReducer.isAuth);
 
   return (
     <Flex
@@ -114,7 +114,11 @@ export const Navbar = () => {
         }}
       >
         <Link to={"/"}>
-          <Image src={colorMode === "light" ? logoLight : logoDark} alt={"Logo"} w={"100%"} />
+          <Image
+            src={colorMode === "light" ? logoLight : logoDark}
+            alt={"Logo"}
+            w={"100%"}
+          />
         </Link>
       </Box>
 
@@ -188,18 +192,20 @@ export const Navbar = () => {
       <Flex>
         {/* forth.1 */}
         <Box>
-          <IconButton
-            aria-label={"favorite"}
-            icon={<BsFillSuitHeartFill />}
-            color={"#f1095d"}
-            size={"sm"}
-            isRound
-          />
+          <Link to={"/fav"}>
+            <IconButton
+              aria-label={"favorite"}
+              icon={<BsFillSuitHeartFill />}
+              color={"#f1095d"}
+              size={"sm"}
+              isRound
+            />
+          </Link>
         </Box>
 
         {/* forth.2 */}
         <Box>
-          <Link to={"/login"}>
+          <Link to={"/signup"}>
             <IconButton
               aria-label={"auth"}
               icon={isAuth ? <FaUserSlash /> : <FaUser />}

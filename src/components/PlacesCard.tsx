@@ -1,8 +1,21 @@
-import { Text, Grid, Image, useColorMode, Icon, Box, Flex, Button } from "@chakra-ui/react";
+import {
+  Text,
+  Grid,
+  Image,
+  useColorMode,
+  Icon,
+  Box,
+  Flex,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import { Places } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../redux/store";
+import { getFavdata, postSingleProductItem } from "../redux/fav/action";
+import { useState } from "react";
 
 export const PlacesCard = ({
   id,
@@ -22,6 +35,26 @@ export const PlacesCard = ({
 }: Places) => {
   const { colorMode } = useColorMode();
 
+  const dispatch = useAppDispatch();
+  const toast = useToast();
+  const places = useAppSelector((store) => store.placesReducer.data);
+  const [state, setState] = useState<boolean>(false);
+  const handleAdd = () => {
+    let d = places.find((el) => el.id === id);
+    // console.log(d);
+    dispatch(postSingleProductItem({ ...d, quantity: 1 })).then((res: any) => {
+      dispatch(getFavdata());
+      toast({
+        title: "Yay!!",
+        description: "The place has been added to favourites",
+        status: "success",
+        duration: 4000,
+        position: "top",
+        isClosable: true,
+      });
+      setState(true);
+    });
+  };
   return (
     <Grid borderRadius="5px" w={"100%"} pos={"relative"}>
       {/* first */}
@@ -42,17 +75,41 @@ export const PlacesCard = ({
 
       {/* second */}
       <Box pos={"absolute"} top={"5%"} right={"7%"}>
-        <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
+        {!state ? (
+          <Button
+            onClick={handleAdd}
+            background={"none"}
+            _hover={{ bg: "none" }}
+          >
+            <Icon
+              aria-label="favorite"
+              as={BsFillSuitHeartFill}
+              color={"white"}
+            />
+          </Button>
+        ) : (
+          <Button bg={"none"} _hover={{ bg: "none" }}>
+            <Icon
+              aria-label="favorite"
+              as={BsFillSuitHeartFill}
+              color={"#dc2e6d"}
+            />
+          </Button>
+        )}
       </Box>
 
       {/* third */}
       <Flex justify={"space-between"} mt={".3rem"}>
-        <Text fontWeight={"semibold"} color={colorMode === "light" ? "black" : "white"}>
+        <Text
+          fontWeight={"semibold"}
+          color={colorMode === "light" ? "black" : "white"}
+        >
           {city}, {country}
         </Text>
 
         <Box>
-          <Icon aria-label="rating" as={AiFillStar} color={"#567eb9"} /> {rating}
+          <Icon aria-label="rating" as={AiFillStar} color={"#567eb9"} />{" "}
+          {rating}
         </Box>
       </Flex>
 

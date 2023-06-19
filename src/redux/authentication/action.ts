@@ -1,52 +1,58 @@
+import {
+  REGISTER_USER,
+  REGISTER_USER_FAILURE,
+  REGISTER_USER_SUCCESSFUL,
+} from "../actionTypes";
+import axios from "axios";
 import { LoginData } from "../../utils/types";
 import { AppDispatch } from "../store";
-import { userLoginAPI } from "./api";
-import { USER_LOGIN_REQUEST, USER_LOGIN_ERROR, USER_LOGIN_SUCCESS } from "../actionTypes";
 
-export interface IUserLoginRequest {
-  type: typeof USER_LOGIN_REQUEST;
+const URL = "https://safer.onrender.com";
+
+export interface IRegisterRequest {
+  type: typeof REGISTER_USER;
 }
 
-export interface IUserLoginSuccess {
-  type: typeof USER_LOGIN_SUCCESS;
-  payload: string;
+export interface IRegisterSuccess {
+  type: typeof REGISTER_USER_SUCCESSFUL;
+  payload: LoginData[];
 }
 
-export interface IUserLoginError {
-  type: typeof USER_LOGIN_ERROR;
+export interface IRegisterError {
+  type: typeof REGISTER_USER_FAILURE;
 }
 
-export type AuthAction = IUserLoginError | IUserLoginRequest | IUserLoginSuccess;
+export type AuthAction = IRegisterRequest | IRegisterSuccess | IRegisterError;
 
-const userLoginRequest = (): IUserLoginRequest => {
+const userRequest = (): IRegisterRequest => {
   return {
-    type: USER_LOGIN_REQUEST,
+    type: REGISTER_USER,
   };
 };
 
-const userLoginSuccess = (token: string): IUserLoginSuccess => {
+const userSuccess = (userData: []): IRegisterSuccess => {
   return {
-    type: USER_LOGIN_SUCCESS,
-    payload: token,
+    type: REGISTER_USER_SUCCESSFUL,
+    payload: userData,
   };
 };
 
-const userLoginError = (): IUserLoginError => {
+const userError = (): IRegisterError => {
   return {
-    type: USER_LOGIN_ERROR,
+    type: REGISTER_USER_FAILURE,
   };
 };
 
-export const userLogin =
-  (payload: LoginData): any =>
-  async (dispatch: AppDispatch) => {
-    dispatch(userLoginRequest());
-    try {
-      let res = await userLoginAPI(payload);
-      if (res) {
-        dispatch(userLoginSuccess(res));
-      }
-    } catch (e) {
-      dispatch(userLoginError());
-    }
-  };
+export const signup = (userData: LoginData) => (dispatch: AppDispatch) => {
+  dispatch({ type: REGISTER_USER });
+  axios
+    .post(`${URL}/users`, userData)
+    .then((res) => {
+      dispatch({ type: REGISTER_USER_SUCCESSFUL, payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+
+      dispatch({ type: REGISTER_USER_FAILURE });
+    });
+};
