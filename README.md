@@ -34,5 +34,7 @@ To contribute to SAFAR, follow these steps:
 - Make your desired contributions, whether it's implementing new features, fixing bugs, or improving existing functionality.
 - Commit and push your changes to your forked repository.
 - Submit a pull request, and we'll review your changes.
-- Suggestions: If you have ideas for updates or improvements but don't want to code them yourself, please open an issue to share your suggestions. We appreciate your input!
-- Documentation: If you notice any areas where our documentation can be enhanced or expanded, feel free to contribute by adding the necessary information.
+
+## Suggestions: If you have ideas for updates or improvements but don't want to code them yourself, please open an issue to share your suggestions. We appreciate your input!
+
+## Documentation: If you notice any areas where our documentation can be enhanced or expanded, feel free to contribute by adding the necessary information.
