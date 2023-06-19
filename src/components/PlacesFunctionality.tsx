@@ -108,8 +108,8 @@ export const PlacesFunctionality = ({ query, setQuery }: PlacesFunctionalityProp
             <option value={"Hotel"}>Hotel</option>
             <option value={"Cottage"}>Cottage</option>
             <option value={"Suite Room"}>Suite Room</option>
-            <option value={"Penthouse"}>Pent House</option>
-            <option value={"Guesthouse"}>Guest House</option>
+            <option value={"Pent House"}>Pent House</option>
+            <option value={"Guest House"}>Guest House</option>
             <option value={"Studio Apartment"}>Studio Apartment</option>
           </Select>
         </Box>

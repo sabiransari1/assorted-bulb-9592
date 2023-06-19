@@ -3,6 +3,7 @@ import { Home, Places } from "../../utils/types";
 
 const URL = "https://safer.onrender.com";
 
+
 export const getHomeAPI = async () => {
   try {
     const res: AxiosResponse<Home[]> = await axios.get(`${URL}/homePage`);

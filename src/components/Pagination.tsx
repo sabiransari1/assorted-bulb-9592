@@ -26,6 +26,11 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
             xl: "block",
             "2xl": "block",
           }}
+          _hover={{
+            bg: "#fff",
+            border: "4px double #f1095d",
+            color: "#f1095d",
+          }}
         >
           Prev
         </Button>
@@ -45,6 +50,11 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
               bgColor={activePage === index + 1 ? "#f1095d" : "#daeff0"}
               onClick={() => handlePageChange(index + 1)}
               key={index}
+              _hover={{
+                bg: "#fff",
+                border: "4px double #f1095d",
+                color: "#f1095d",
+              }}
             >
               {index + 1}
             </Button>
@@ -72,6 +82,11 @@ const Pagination = ({ placesLength, perPage, activePage, handlePageChange }: IPa
             lg: "block",
             xl: "block",
             "2xl": "block",
+          }}
+          _hover={{
+            bg: "#fff",
+            border: "4px double #f1095d",
+            color: "#f1095d",
           }}
         >
           Next
