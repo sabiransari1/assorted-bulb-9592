@@ -25,6 +25,9 @@ export interface Places {
 }
 
 export interface LoginData {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
+  mobile?: string | number;
 }

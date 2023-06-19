@@ -1,3 +1,18 @@
+// User Registration
+
+export const REGISTER_USER = "REGISTER_USER";
+export const REGISTER_USER_SUCCESSFUL = "REGISTER_USER_SUCCESSFUL";
+export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
+
+// User Favourites
+
+export const GET_FAV_REQUEST = "GET_FAV_REQUEST";
+export const GET_FAV_SUCCESS = "GET_FAV_SUCCESS";
+export const GET_FAV_FAILURE = "GET_FAV_FAILURE";
+export const DELETE_FAV = "DELETE_FAV";
+// Reset
+
+export const RESET = "RESET";
 // AUTH
 export const USER_LOGIN_REQUEST = "userLogin/request";
 export const USER_LOGIN_ERROR = "userLogin/error";
