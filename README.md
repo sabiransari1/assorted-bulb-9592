@@ -4,8 +4,8 @@ Welcome to SAFAR, an e-commerce hotel booking platform that allows users to book
 
 ## It is an Collaborative Project.
 Collaborators
-sabir Ansari (Team-Lead)
-Juri Kalita
+- Sabir Ansari (Team-Lead)
+- Juri Kalita
 
 ## Tech Stack
 In this project, we utilize the following technologies:
