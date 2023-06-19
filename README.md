@@ -1,7 +1,7 @@
 # SAFAR
 
 ## Description
-Welcome to my project! This is an e-commerce hotal booking platform. Where you can have hotels all over the world. It allows users to quickly and easily book hotel. With this App, users can effortlessly manage holidays & events, helping them be enthusiastic & feel realx. I hope you enjoy and i look forward to your contributions!
+Welcome to our project! This is an e-commerce hotal booking platform. Where you can have hotels all over the world. It allows users to quickly and easily book hotel. With this App, users can effortlessly manage holidays & events, helping them be enthusiastic & feel realx. I hope you enjoy and i look forward to your contributions!
 
 ## In this project Tech stack used are
 1. HTML
