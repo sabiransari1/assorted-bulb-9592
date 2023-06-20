@@ -1,11 +1,6 @@
 import axios from "axios";
 import { Places } from "../../utils/types";
-import {
-  DELETE_FAV,
-  GET_FAV_FAILURE,
-  GET_FAV_REQUEST,
-  GET_FAV_SUCCESS,
-} from "../actionTypes";
+import { DELETE_FAV, GET_FAV_FAILURE, GET_FAV_REQUEST, GET_FAV_SUCCESS } from "../actionTypes";
 import { AppDispatch } from "../store";
 
 const URL = "https://safer.onrender.com";
@@ -40,7 +35,7 @@ export const postSingleProductItem = (obj: any) => (dispatch: AppDispatch) => {
   return axios
     .post(`${URL}/favourite`, obj)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
     })
     .catch((err) => dispatch({ type: GET_FAV_FAILURE }));
 };

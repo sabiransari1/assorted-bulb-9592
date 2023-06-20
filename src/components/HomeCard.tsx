@@ -26,9 +26,9 @@ export const HomeCard = ({ id, img, city, country, price, rating }: Home) => {
       />
 
       {/* second */}
-      <Box pos={"absolute"} top={"5%"} right={"7%"}>
+      {/* <Box pos={"absolute"} top={"5%"} right={"7%"}>
         <Icon aria-label="favorite" as={BsFillSuitHeartFill} color={"#f1095d"} />
-      </Box>
+      </Box> */}
 
       {/* third */}
       <Link to={"/places"}>
