@@ -4,13 +4,12 @@ import { About } from "./About";
 import { Support } from "./Support";
 import { Housing } from "./Housing";
 import { Community } from "./Community";
-
 import { Places } from "./Places";
 import { Booking } from "../components/Booking";
 import { BookingPreview } from "../components/BookingPreview";
 import { PageNotFound } from "./PageNotFound";
 import SignUp from "./SignUp";
-import Login from "./Login";
+import { Login } from "./Login";
 import { Fav } from "./Fav";
 
 export const AllRoutes = () => {

@@ -1,9 +1,5 @@
 import { LoginData } from "../../utils/types";
-import {
-  REGISTER_USER,
-  REGISTER_USER_FAILURE,
-  REGISTER_USER_SUCCESSFUL,
-} from "../actionTypes";
+import { REGISTER_USER, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESSFUL } from "../actionTypes";
 import { AuthAction } from "./action";
 
 export interface AuthState {
@@ -22,10 +18,7 @@ const initialState = {
   isError: false,
 };
 
-export const authReducer = (
-  state: AuthState = initialState,
-  action: AuthAction
-) => {
+export const authReducer = (state: AuthState = initialState, action: AuthAction) => {
   const { type } = action;
   switch (type) {
     case REGISTER_USER: {

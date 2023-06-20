@@ -114,11 +114,7 @@ export const Navbar = () => {
         }}
       >
         <Link to={"/"}>
-          <Image
-            src={colorMode === "light" ? logoLight : logoDark}
-            alt={"Logo"}
-            w={"100%"}
-          />
+          <Image src={colorMode === "light" ? logoLight : logoDark} alt={"Logo"} w={"100%"} />
         </Link>
       </Box>
 
