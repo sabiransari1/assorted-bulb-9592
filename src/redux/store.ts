@@ -3,16 +3,13 @@ import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import thunk from "redux-thunk";
 import { authReducer } from "./authentication/authReducer";
 import { placesReducer } from "./places/placesReducer";
-import { favReducer } from "./fav/favReducer";
+import { FavoritesReducer } from "./favorites/FavoritesReducer";
 
-const rootReducer = combineReducers({ authReducer, placesReducer, favReducer });
+const rootReducer = combineReducers({ authReducer, placesReducer, FavoritesReducer });
 
 let middleware = [thunk];
 
-export const store = legacy_createStore(
-  rootReducer,
-  applyMiddleware(...middleware)
-);
+export const store = legacy_createStore(rootReducer, applyMiddleware(...middleware));
 
 export type AppDispatch = typeof store.dispatch;
 

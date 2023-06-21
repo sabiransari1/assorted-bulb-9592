@@ -188,7 +188,7 @@ export const Navbar = () => {
       <Flex>
         {/* forth.1 */}
         <Box>
-          <Link to={"/fav"}>
+          <Link to={"/favorites"}>
             <IconButton
               aria-label={"favorite"}
               icon={<BsFillSuitHeartFill />}

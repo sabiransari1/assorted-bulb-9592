@@ -3,11 +3,11 @@ import { Box, Button, Flex, Grid, Icon, Image, Text, useColorMode } from "@chakr
 import { Link } from "react-router-dom";
 import { Places } from "../utils/types";
 import { AiFillStar } from "react-icons/ai";
-import { RiDeleteBin6Fill, RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
-import { deleteFav, getFavdata } from "../redux/fav/action";
-import { useAppDispatch, useAppSelector } from "../redux/store";
-export const FavPlaces = ({
+import { deleteFav, getFavdata } from "../redux/favorites/action";
+import { useAppDispatch } from "../redux/store";
+export const FavoritesPlaces = ({
   id,
   img,
   city,
@@ -21,7 +21,6 @@ export const FavPlaces = ({
 }: Places) => {
   const { colorMode } = useColorMode();
   const dispatch = useAppDispatch();
-  const fav = useAppSelector((store) => store.favReducer.fav);
 
   const handleDelete = (id?: number) => {
     dispatch(deleteFav(id)).then((res) => {
@@ -29,7 +28,7 @@ export const FavPlaces = ({
     });
   };
   return (
-    <Box minH={"100vh"}>
+    <Box>
       <Grid borderRadius="5px" w={"100%"} pos={"relative"}>
         {/* first */}
         <Image

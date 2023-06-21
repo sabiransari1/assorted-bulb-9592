@@ -1,10 +1,5 @@
 import { Places } from "../../utils/types";
-import {
-  DELETE_FAV,
-  GET_FAV_FAILURE,
-  GET_FAV_REQUEST,
-  GET_FAV_SUCCESS,
-} from "../actionTypes";
+import { DELETE_FAV, GET_FAV_FAILURE, GET_FAV_REQUEST, GET_FAV_SUCCESS } from "../actionTypes";
 import { FavAction } from "./action";
 export interface IFavState {
   isLoading: boolean;
@@ -17,10 +12,7 @@ const initialState = {
   fav: new Array(),
 };
 
-export const favReducer = (
-  state: IFavState = initialState,
-  action: FavAction
-) => {
+export const FavoritesReducer = (state: IFavState = initialState, action: FavAction) => {
   const { type } = action;
   switch (type) {
     case GET_FAV_REQUEST:

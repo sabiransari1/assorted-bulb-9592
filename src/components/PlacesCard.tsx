@@ -14,7 +14,7 @@ import { AiFillStar } from "react-icons/ai";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/store";
-import { getFavdata, postSingleProductItem } from "../redux/fav/action";
+import { getFavdata, postSingleProductItem } from "../redux/favorites/action";
 import { useState } from "react";
 
 export const PlacesCard = ({

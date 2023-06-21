@@ -1,11 +1,11 @@
-import React from "react";
 import { useAppSelector } from "../redux/store";
 import { Box, Grid, Heading } from "@chakra-ui/react";
-import { FavPlaces } from "../components/FavPlaces";
+import { FavoritesPlaces } from "../components/FavoritesPlaces";
 import { Places } from "../utils/types";
 
-export const Fav = () => {
-  const fav = useAppSelector((store) => store.favReducer.fav);
+export const Favorites = () => {
+  const fav = useAppSelector((store) => store.FavoritesReducer.fav);
+
   return (
     <Box
       minH={"100vh"}
@@ -33,7 +33,7 @@ export const Fav = () => {
           gap={"1rem"}
         >
           {fav?.map((el: Places) => {
-            return <FavPlaces key={el.id} {...el} />;
+            return <FavoritesPlaces key={el.id} {...el} />;
           })}
         </Grid>
       )}
