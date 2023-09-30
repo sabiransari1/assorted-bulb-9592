@@ -3,7 +3,7 @@ import { Places } from "../../utils/types";
 import { DELETE_FAV, GET_FAV_FAILURE, GET_FAV_REQUEST, GET_FAV_SUCCESS } from "../actionTypes";
 import { AppDispatch } from "../store";
 
-const URL = "https://safer.onrender.com";
+const URL = "https://safar-json-server-sabiransari1.onrender.com";
 export interface IFavRequest {
   type: typeof GET_FAV_REQUEST;
 }
