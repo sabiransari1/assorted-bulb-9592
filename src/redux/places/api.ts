@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Home, Places } from "../../utils/types";
 
-const URL = "https://safer.onrender.com";
+const URL = "https://safar-json-server-sabiransari1.onrender.com";
 
 export const getHomeAPI = async () => {
   try {
