@@ -7,7 +7,7 @@ import axios from "axios";
 import { LoginData } from "../../utils/types";
 import { AppDispatch } from "../store";
 
-const URL = "https://safer.onrender.com";
+const URL = "https://safar-json-server-sabiransari1.onrender.com";
 
 export interface IRegisterRequest {
   type: typeof REGISTER_USER;
