@@ -13,12 +13,13 @@ In this project, we utilize the following technologies:
 1. HTML5
 2. CSS3
 3. JavaScript
-4. JSON-Server (Mock-Server)
+4. JSON-Server
 5. React
-6. TypeScript
-7. Redux
-8. Redux Thunk
-9. Chakra UI
+6. Redux
+7. React-Redux
+8. Redux-Thunk
+9. TypeScript
+10. Chakra-UI
 
 ## Contributing
 We welcome and appreciate all contributions to SAFAR! Whether you want to report a bug, contribute code, provide suggestions, or improve the documentation, there are several ways you can get involved:
