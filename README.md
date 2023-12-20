@@ -10,8 +10,8 @@ Collaborators
 ## Tech Stack
 In this project, we utilize the following technologies:
 
-1. HTML5
-2. CSS3
+1. HTML
+2. CSS
 3. JavaScript
 4. JSON-Server
 5. React
